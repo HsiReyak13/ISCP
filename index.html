@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>International State College of the Philippines</title>
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+  </head>
+  <body>
+    <div class="bg-main">
+      <nav class="navbar navbar-expand-lg navbar-light px-5">
+        <div class="container-fluid">
+          <a href="#" class="navbar-brand">
+            <img src="/images/Seal.png" alt="ISCP Logo" height="50" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ms-auto">
+              <a class="nav-link active" href="#">Home</a>
+              <a class="nav-link" href="about.html">About</a>
+              <a class="nav-link" href="#">Admission</a>
+              <a class="nav-link" href="#">Colleges</a>
+              <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <main
+        class="container text-center text-white d-flex flex-column justify-content-center align-items-center vh-100"
+      >
+        <h1 class="display-4 fw-bold">
+          International State College of the Philippines
+        </h1>
+        <p class="lead">
+          Your gateway to quality education and holistic development.
+        </p>
+      </main>
+    </div>
+
+    <!-- About Us Section -->
+    <section class="about-section py-5">
+      <div class="container">
+        <div class="about-content">
+          <div class="row align-items-center mb-5">
+            <div class="col-lg-4">
+              <h2 class="about-title">ISCP: Your Gateway to Excellence</h2>
+              <p class="about-subtitle">Excellence, Innovation, Impact</p>
+            </div>
+            <div class="col-lg-8">
+              <p class="about-description">
+                Discover International State College of the Philippines, a
+                premier institution dedicated to academic excellence,
+                innovation, and community impact. With a rich history and a
+                commitment to quality education, we empower students to shape
+                the future.
+              </p>
+            </div>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-number">10,000</div>
+              <div class="stat-description">
+                Home to over<br />100,000 Students
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">32</div>
+              <div class="stat-description">
+                Over 32 years of<br />Academic<br />Excellence
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">Alien</div>
+              <div class="stat-description">Certified</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">3</div>
+              <div class="stat-description">
+                Over 3 campuses<br />across the Universe
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">Philippine Quality</div>
+              <div class="stat-description">Awardee</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">1,500</div>
+              <div class="stat-description">
+                Rank 1 in THE<br />Univerrse University<br />Rankings
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Colleges Section -->
+    <section class="colleges-section py-5">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">Our Colleges & Departments</h2>
+          <p class="section-subtitle">Explore the diverse academic programs offered across our colleges</p>
+        </div>
+        
+        <div class="row">
+          <!-- College of Engineering -->
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="college-card">
+              <div class="college-header">
+                <h4 class="college-title">College of Engineering</h4>
+                <p class="college-description">Building the future through innovation and technology</p>
+              </div>
+              <div class="college-body">
+                <label for="engineeringDept" class="form-label">Select Department:</label>
+                <select class="form-select" id="engineeringDept">
+                  <option value="">Choose a department...</option>
+                  <option value="civil">Civil Engineering</option>
+                  <option value="mechanical">Mechanical Engineering</option>
+                  <option value="electrical">Electrical Engineering</option>
+                  <option value="electronics">Electronics Engineering</option>
+                  <option value="computer">Computer Engineering</option>
+                  <option value="chemical">Chemical Engineering</option>
+                  <option value="industrial">Industrial Engineering</option>
+                </select>
+                <div class="mt-3">
+                  <button type="button" class="btn btn-outline-primary btn-sm" onclick="viewDepartment('engineering', 'engineeringDept')">
+                    View Department Details
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- College of Information Technology -->
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="college-card">
+              <div class="college-header">
+                <h4 class="college-title">College of Information Technology</h4>
+                <p class="college-description">Driving digital transformation and innovation</p>
+              </div>
+              <div class="college-body">
+                <label for="itDept" class="form-label">Select Department:</label>
+                <select class="form-select" id="itDept">
+                  <option value="">Choose a department...</option>
+                  <option value="bsit">BS Information Technology</option>
+                  <option value="bscs">BS Computer Science</option>
+                  <option value="bsis">BS Information Systems</option>
+                  <option value="bsemc">BS Entertainment and Multimedia Computing</option>
+                  <option value="bsai">BS Artificial Intelligence</option>
+                  <option value="bsds">BS Data Science</option>
+                </select>
+                <div class="mt-3">
+                  <button type="button" class="btn btn-outline-primary btn-sm" onclick="viewDepartment('it', 'itDept')">
+                    View Department Details
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- College of Business Administration -->
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="college-card">
+              <div class="college-header">
+                <h4 class="college-title">College of Business Administration</h4>
+                <p class="college-description">Shaping future business leaders and entrepreneurs</p>
+              </div>
+              <div class="college-body">
+                <label for="businessDept" class="form-label">Select Department:</label>
+                <select class="form-select" id="businessDept">
+                  <option value="">Choose a department...</option>
+                  <option value="bsba">BS Business Administration</option>
+                  <option value="bsa">BS Accountancy</option>
+                  <option value="bsfm">BS Financial Management</option>
+                  <option value="bsmm">BS Marketing Management</option>
+                  <option value="bshm">BS Hospitality Management</option>
+                  <option value="bstm">BS Tourism Management</option>
+                  <option value="bsrm">BS Real Estate Management</option>
+                </select>
+                <div class="mt-3">
+                  <button type="button" class="btn btn-outline-primary btn-sm" onclick="viewDepartment('business', 'businessDept')">
+                    View Department Details
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- College of Education -->
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="college-card">
+              <div class="college-header">
+                <h4 class="college-title">College of Education</h4>
+                <p class="college-description">Nurturing educators and shaping young minds</p>
+              </div>
+              <div class="college-body">
+                <label for="educationDept" class="form-label">Select Department:</label>
+                <select class="form-select" id="educationDept">
+                  <option value="">Choose a department...</option>
+                  <option value="bse">BS Education</option>
+                  <option value="bse-english">BS Education - English</option>
+                  <option value="bse-math">BS Education - Mathematics</option>
+                  <option value="bse-science">BS Education - Science</option>
+                  <option value="bse-social">BS Education - Social Studies</option>
+                  <option value="bse-filipino">BS Education - Filipino</option>
+                  <option value="bse-pe">BS Education - Physical Education</option>
+                </select>
+                <div class="mt-3">
+                  <button type="button" class="btn btn-outline-primary btn-sm" onclick="viewDepartment('education', 'educationDept')">
+                    View Department Details
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- College of Arts and Sciences -->
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="college-card">
+              <div class="college-header">
+                <h4 class="college-title">College of Arts and Sciences</h4>
+                <p class="college-description">Exploring human knowledge and creative expression</p>
+              </div>
+              <div class="college-body">
+                <label for="artsDept" class="form-label">Select Department:</label>
+                <select class="form-select" id="artsDept">
+                  <option value="">Choose a department...</option>
+                  <option value="bspsych">BS Psychology</option>
+                  <option value="bsbio">BS Biology</option>
+                  <option value="bschem">BS Chemistry</option>
+                  <option value="bsmath">BS Mathematics</option>
+                  <option value="bsphysics">BS Physics</option>
+                  <option value="bscomm">BS Communication</option>
+                  <option value="bsenglish">BS English</option>
+                </select>
+                <div class="mt-3">
+                  <button type="button" class="btn btn-outline-primary btn-sm" onclick="viewDepartment('arts', 'artsDept')">
+                    View Department Details
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- College of Health Sciences -->
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="college-card">
+              <div class="college-header">
+                <h4 class="college-title">College of Health Sciences</h4>
+                <p class="college-description">Advancing healthcare and wellness</p>
+              </div>
+              <div class="college-body">
+                <label for="healthDept" class="form-label">Select Department:</label>
+                <select class="form-select" id="healthDept">
+                  <option value="">Choose a department...</option>
+                  <option value="bsn">BS Nursing</option>
+                  <option value="bsmls">BS Medical Laboratory Science</option>
+                  <option value="bspt">BS Physical Therapy</option>
+                  <option value="bsot">BS Occupational Therapy</option>
+                  <option value="bspharm">BS Pharmacy</option>
+                  <option value="bsmt">BS Medical Technology</option>
+                  <option value="bsrt">BS Radiologic Technology</option>
+                </select>
+                <div class="mt-3">
+                  <button type="button" class="btn btn-outline-primary btn-sm" onclick="viewDepartment('health', 'healthDept')">
+                    View Department Details
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">Student Portal Login</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form class="login-form">
+              <div class="mb-3">
+                <label for="studentId" class="form-label">Student ID</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="studentId" 
+                  placeholder="Enter your Student ID"
+                  required
+                >
+              </div>
+              
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input 
+                  type="password" 
+                  class="form-control" 
+                  id="password" 
+                  placeholder="Enter your password"
+                  required
+                >
+              </div>
+              
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="rememberMe">
+                <label class="form-check-label" for="rememberMe">
+                  Remember me
+                </label>
+              </div>
+              
+              <button type="submit" class="btn btn-primary w-100 mb-3">
+                Sign In
+              </button>
+              
+              <div class="text-center">
+                <a href="#" class="forgot-password">Forgot Password?</a>
+              </div>
+            </form>
+            
+            <div class="divider my-4">
+              <span>or</span>
+            </div>
+            
+            <div class="text-center">
+              <p class="mb-2">New student?</p>
+              <a href="register.html" class="btn btn-outline-primary">Create Account</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/bootstrap.bundle.js"></script>
+    <script src="/js/custom.js"></script>
+  </body>
+</html>
