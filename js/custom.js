@@ -1,435 +1,296 @@
-// Colleges and Departments JavaScript Functions
 
-function viewDepartment(college, selectId) {
-  const select = document.getElementById(selectId);
-  const selectedValue = select.value;
+function initializePreloader() {
+  const preloader = document.getElementById('preloader');
+  const progressFill = document.getElementById('progressFill');
+  const progressText = document.getElementById('progressText');
   
-  if (!selectedValue) {
-    alert('Please select a department first.');
-    return;
+  if (!preloader) return;
+  
+  // Add preloading class to body
+  document.body.classList.add('preloading');
+  
+  let progress = 0;
+  const targetProgress = 100;
+  const increment = 1;
+  const progressInterval = setInterval(() => {
+    progress += increment;
+    
+    if (progressFill) {
+      progressFill.style.width = `${progress}%`;
+    }
+    
+    if (progressText) {
+      progressText.textContent = `${Math.min(progress, 100)}%`;
+    }
+    
+    if (progress >= targetProgress) {
+      clearInterval(progressInterval);
+      
+      setTimeout(() => {
+        preloader.classList.add('fade-out');
+        
+        setTimeout(() => {
+          preloader.remove();
+          document.body.classList.remove('preloading');
+          
+          triggerContentAnimations();
+        }, 1000);
+      }, 800);
+    }
+  }, 80);
+}
+
+function triggerContentAnimations() {
+  if (typeof AOS !== 'undefined') {
+    AOS.init({
+      duration: 1200,
+      easing: 'ease-out-cubic',
+      once: true,
+      delay: 300
+    });
   }
+  const animatedElements = document.querySelectorAll('[data-aos]');
+  animatedElements.forEach(element => {
+    element.style.opacity = '0';
+    element.style.transform = 'translateY(30px)';
+    
+    setTimeout(() => {
+      element.style.transition = 'all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      element.style.opacity = '1';
+      element.style.transform = 'translateY(0)';
+    }, 200);
+  });
+}
+
+function initializeAdvancedPreloader() {
+  const preloader = document.getElementById('preloader');
   
-  // Get the selected department name
-  const selectedOption = select.options[select.selectedIndex];
-  const departmentName = selectedOption.text;
+  if (!preloader) return;
+  const resources = [
+    '/css/bootstrap.css',
+    '/css/custom.css',
+    '/js/bootstrap.bundle.js',
+    '/js/custom.js',
+    '/images/background.jpg',
+    '/images/Seal.png'
+  ];
   
-  // Create modal content based on college and department
-  let modalContent = '';
-  let modalTitle = '';
+  let loadedResources = 0;
+  const totalResources = resources.length;
   
-  switch(college) {
-    case 'engineering':
-      modalTitle = 'Engineering Department Details';
-      modalContent = getEngineeringDetails(selectedValue, departmentName);
-      break;
-    case 'it':
-      modalTitle = 'IT Department Details';
-      modalContent = getITDetails(selectedValue, departmentName);
-      break;
-    case 'business':
-      modalTitle = 'Business Department Details';
-      modalContent = getBusinessDetails(selectedValue, departmentName);
-      break;
-    case 'education':
-      modalTitle = 'Education Department Details';
-      modalContent = getEducationDetails(selectedValue, departmentName);
-      break;
-    case 'arts':
-      modalTitle = 'Arts & Sciences Department Details';
-      modalContent = getArtsDetails(selectedValue, departmentName);
-      break;
-    case 'health':
-      modalTitle = 'Health Sciences Department Details';
-      modalContent = getHealthDetails(selectedValue, departmentName);
-      break;
+  resources.forEach(resource => {
+    if (isResourceLoaded(resource)) {
+      loadedResources++;
+      updateProgress(loadedResources, totalResources);
+    }
+  });
+  
+  if (loadedResources >= totalResources) {
+    setTimeout(() => {
+      hidePreloader();
+    }, 2500);
+  } else {
+    simulateRemainingProgress(loadedResources, totalResources);
   }
-  
-  // Show the modal
-  showDepartmentModal(modalTitle, modalContent);
 }
 
-function getEngineeringDetails(dept, name) {
-  const details = {
-    'civil': {
-      duration: '5 years',
-      units: '180 units',
-      description: 'Focuses on planning, designing, and constructing infrastructure projects.',
-      careers: 'Civil Engineer, Structural Engineer, Transportation Engineer, Water Resources Engineer'
-    },
-    'mechanical': {
-      duration: '5 years',
-      units: '180 units',
-      description: 'Deals with mechanical systems, energy conversion, and manufacturing processes.',
-      careers: 'Mechanical Engineer, HVAC Engineer, Manufacturing Engineer, Energy Engineer'
-    },
-    'electrical': {
-      duration: '5 years',
-      units: '180 units',
-      description: 'Focuses on electrical systems, power generation, and distribution.',
-      careers: 'Electrical Engineer, Power Engineer, Control Systems Engineer, Electronics Engineer'
-    },
-    'electronics': {
-      duration: '5 years',
-      units: '180 units',
-      description: 'Deals with electronic circuits, communications, and control systems.',
-      careers: 'Electronics Engineer, Communications Engineer, Control Engineer, Embedded Systems Engineer'
-    },
-    'computer': {
-      duration: '5 years',
-      units: '180 units',
-      description: 'Combines electrical engineering with computer science principles.',
-      careers: 'Computer Engineer, Hardware Engineer, Systems Engineer, Network Engineer'
-    },
-    'chemical': {
-      duration: '5 years',
-      units: '180 units',
-      description: 'Focuses on chemical processes, materials, and industrial applications.',
-      careers: 'Chemical Engineer, Process Engineer, Materials Engineer, Environmental Engineer'
-    },
-    'industrial': {
-      duration: '5 years',
-      units: '180 units',
-      description: 'Optimizes complex systems and processes for efficiency.',
-      careers: 'Industrial Engineer, Operations Engineer, Quality Engineer, Supply Chain Engineer'
-    }
-  };
-  
-  const deptInfo = details[dept] || details['civil'];
-  return `
-    <h6>Program: ${name}</h6>
-    <p><strong>Duration:</strong> ${deptInfo.duration}</p>
-    <p><strong>Total Units:</strong> ${deptInfo.units}</p>
-    <p><strong>Description:</strong> ${deptInfo.description}</p>
-    <p><strong>Career Opportunities:</strong> ${deptInfo.careers}</p>
-  `;
+function isResourceLoaded(resource) {
+  if (resource.endsWith('.css')) {
+    return document.querySelector(`link[href="${resource}"]`) !== null;
+  } else if (resource.endsWith('.js')) {
+    return document.querySelector(`script[src="${resource}"]`) !== null;
+  } else if (resource.endsWith('.jpg') || resource.endsWith('.png')) {
+    return true;
+  }
+  return false;
 }
 
-function getITDetails(dept, name) {
-  const details = {
-    'bsit': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Focuses on information technology systems, networks, and applications.',
-      careers: 'IT Specialist, Network Administrator, Systems Analyst, Database Administrator'
-    },
-    'bscs': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Emphasizes computer science theory, algorithms, and software development.',
-      careers: 'Software Developer, Computer Scientist, Algorithm Engineer, Research Developer'
-    },
-    'bsis': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Combines business and technology for information systems management.',
-      careers: 'Business Analyst, IT Consultant, Systems Manager, Project Manager'
-    },
-    'bsemc': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Focuses on game development, multimedia, and digital entertainment.',
-      careers: 'Game Developer, Multimedia Artist, 3D Animator, Digital Content Creator'
-    },
-    'bsai': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Specializes in artificial intelligence, machine learning, and data science.',
-      careers: 'AI Engineer, Machine Learning Engineer, Data Scientist, Research Scientist'
-    },
-    'bsds': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Focuses on data analysis, statistics, and business intelligence.',
-      careers: 'Data Analyst, Business Intelligence Analyst, Data Engineer, Statistician'
-    }
-  };
+function updateProgress(loaded, total) {
+  const progressFill = document.getElementById('progressFill');
+  const progressText = document.getElementById('progressText');
   
-  const deptInfo = details[dept] || details['bsit'];
-  return `
-    <h6>Program: ${name}</h6>
-    <p><strong>Duration:</strong> ${deptInfo.duration}</p>
-    <p><strong>Total Units:</strong> ${deptInfo.units}</p>
-    <p><strong>Description:</strong> ${deptInfo.description}</p>
-    <p><strong>Career Opportunities:</strong> ${deptInfo.careers}</p>
-  `;
+  if (progressFill && progressText) {
+    const percentage = Math.round((loaded / total) * 100);
+    progressFill.style.width = `${percentage}%`;
+    progressText.textContent = `${percentage}%`;
+  }
 }
 
-function getBusinessDetails(dept, name) {
-  const details = {
-    'bsba': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Comprehensive business education covering all major business functions.',
-      careers: 'Business Manager, Entrepreneur, Business Analyst, Operations Manager'
-    },
-    'bsa': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Focuses on accounting principles, financial reporting, and auditing.',
-      careers: 'Accountant, Auditor, Financial Analyst, Tax Consultant'
-    },
-    'bsfm': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Specializes in financial management, investments, and risk assessment.',
-      careers: 'Financial Manager, Investment Analyst, Risk Manager, Financial Advisor'
-    },
-    'bsmm': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Focuses on marketing strategies, consumer behavior, and brand management.',
-      careers: 'Marketing Manager, Brand Manager, Market Researcher, Digital Marketer'
-    },
-    'bshm': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Prepares students for hospitality and tourism industry management.',
-      careers: 'Hotel Manager, Restaurant Manager, Event Planner, Tourism Officer'
-    },
-    'bstm': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Focuses on tourism development, travel management, and hospitality.',
-      careers: 'Tourism Manager, Travel Consultant, Tour Guide, Destination Manager'
-    },
-    'bsrm': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Specializes in real estate development, management, and investment.',
-      careers: 'Real Estate Manager, Property Developer, Real Estate Agent, Appraiser'
-    }
-  };
+function simulateRemainingProgress(loaded, total) {
+  const remaining = total - loaded;
+  let current = loaded;
   
-  const deptInfo = details[dept] || details['bsba'];
-  return `
-    <h6>Program: ${name}</h6>
-    <p><strong>Duration:</strong> ${deptInfo.duration}</p>
-    <p><strong>Total Units:</strong> ${deptInfo.units}</p>
-    <p><strong>Description:</strong> ${deptInfo.description}</p>
-    <p><strong>Career Opportunities:</strong> ${deptInfo.careers}</p>
-  `;
+  const interval = setInterval(() => {
+    current++;
+    updateProgress(current, total);
+    
+    if (current >= total) {
+      clearInterval(interval);
+      setTimeout(() => {
+        hidePreloader();
+      }, 1000);
+    }
+  }, 300);
 }
 
-function getEducationDetails(dept, name) {
-  const details = {
-    'bse': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'General education program preparing future educators.',
-      careers: 'Teacher, Educational Administrator, Curriculum Developer, Educational Consultant'
-    },
-    'bse-english': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Specializes in English language teaching and literature.',
-      careers: 'English Teacher, Literature Teacher, Language Arts Specialist, ESL Instructor'
-    },
-    'bse-math': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Focuses on mathematics education and mathematical concepts.',
-      careers: 'Math Teacher, Mathematics Specialist, Curriculum Developer, Math Tutor'
-    },
-    'bse-science': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Prepares educators to teach various science subjects.',
-      careers: 'Science Teacher, Biology Teacher, Chemistry Teacher, Physics Teacher'
-    },
-    'bse-social': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Focuses on social studies, history, and geography education.',
-      careers: 'Social Studies Teacher, History Teacher, Geography Teacher, Civics Teacher'
-    },
-    'bse-filipino': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Specializes in Filipino language and literature education.',
-      careers: 'Filipino Teacher, Literature Teacher, Language Specialist, Cultural Educator'
-    },
-    'bse-pe': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Focuses on physical education and sports coaching.',
-      careers: 'PE Teacher, Sports Coach, Fitness Instructor, Athletic Director'
-    }
-  };
-  
-  const deptInfo = details[dept] || details['bse'];
-  return `
-    <h6>Program: ${name}</h6>
-    <p><strong>Duration:</strong> ${deptInfo.duration}</p>
-    <p><strong>Total Units:</strong> ${deptInfo.units}</p>
-    <p><strong>Description:</strong> ${deptInfo.description}</p>
-    <p><strong>Career Opportunities:</strong> ${deptInfo.careers}</p>
-  `;
+function hidePreloader() {
+  const preloader = document.getElementById('preloader');
+  if (preloader) {
+    preloader.classList.add('fade-out');
+    
+    setTimeout(() => {
+      preloader.remove();
+      document.body.classList.remove('preloading');
+      triggerContentAnimations();
+    }, 1000);
+  }
 }
 
-function getArtsDetails(dept, name) {
-  const details = {
-    'bspsych': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Studies human behavior, mental processes, and psychological principles.',
-      careers: 'Psychologist, Counselor, Human Resources Specialist, Research Assistant'
-    },
-    'bsbio': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Focuses on living organisms, biological systems, and life sciences.',
-      careers: 'Biologist, Research Scientist, Laboratory Technician, Environmental Specialist'
-    },
-    'bschem': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Studies chemical composition, reactions, and molecular structures.',
-      careers: 'Chemist, Laboratory Analyst, Quality Control Specialist, Research Chemist'
-    },
-    'bsmath': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Focuses on mathematical theory, analysis, and problem-solving.',
-      careers: 'Mathematician, Statistician, Actuary, Data Analyst'
-    },
-    'bsphysics': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Studies matter, energy, and the fundamental laws of nature.',
-      careers: 'Physicist, Research Scientist, Engineering Consultant, Teacher'
-    },
-    'bscomm': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Focuses on communication theory, media, and public relations.',
-      careers: 'Communications Specialist, Public Relations Officer, Media Producer, Journalist'
-    },
-    'bsenglish': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Studies English literature, language, and communication.',
-      careers: 'Writer, Editor, Content Creator, Language Specialist'
-    }
-  };
-  
-  const deptInfo = details[dept] || details['bspsych'];
-  return `
-    <h6>Program: ${name}</h6>
-    <p><strong>Duration:</strong> ${deptInfo.duration}</p>
-    <p><strong>Total Units:</strong> ${deptInfo.units}</p>
-    <p><strong>Description:</strong> ${deptInfo.description}</p>
-    <p><strong>Career Opportunities:</strong> ${deptInfo.careers}</p>
-  `;
+function initializeSearch() {
+  const searchInput = document.getElementById('searchInput');
+  if (searchInput) {
+    searchInput.addEventListener('input', function(e) {
+      const query = e.target.value.toLowerCase();
+      if (query.length > 2) {
+        performSearch(query);
+      }
+    });
+  }
 }
 
-function getHealthDetails(dept, name) {
-  const details = {
-    'bsn': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Prepares students for professional nursing practice and patient care.',
-      careers: 'Registered Nurse, Nurse Practitioner, Nurse Educator, Clinical Nurse'
-    },
-    'bsmls': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Focuses on laboratory testing, diagnostics, and medical technology.',
-      careers: 'Medical Laboratory Scientist, Lab Technician, Research Assistant, Quality Control Specialist'
-    },
-    'bspt': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Prepares students for physical therapy and rehabilitation services.',
-      careers: 'Physical Therapist, Rehabilitation Specialist, Sports Therapist, Pediatric Therapist'
-    },
-    'bsot': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Focuses on occupational therapy and helping patients regain daily living skills.',
-      careers: 'Occupational Therapist, Rehabilitation Specialist, Pediatric Therapist, Geriatric Therapist'
-    },
-    'bspharm': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Prepares students for pharmaceutical practice and drug therapy management.',
-      careers: 'Pharmacist, Clinical Pharmacist, Pharmaceutical Researcher, Drug Safety Specialist'
-    },
-    'bsmt': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Focuses on medical technology and laboratory diagnostics.',
-      careers: 'Medical Technologist, Laboratory Manager, Research Scientist, Quality Assurance Specialist'
-    },
-    'bsrt': {
-      duration: '4 years',
-      units: '144 units',
-      description: 'Prepares students for radiologic technology and medical imaging.',
-      careers: 'Radiologic Technologist, MRI Technician, CT Technician, Ultrasound Technician'
-    }
-  };
+function performSearch(query) {
+  const searchableElements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, .college-title, .campus-name');
+  let results = [];
   
-  const deptInfo = details[dept] || details['bsn'];
-  return `
-    <h6>Program: ${name}</h6>
-    <p><strong>Duration:</strong> ${deptInfo.duration}</p>
-    <p><strong>Total Units:</strong> ${deptInfo.units}</p>
-    <p><strong>Description:</strong> ${deptInfo.description}</p>
-    <p><strong>Career Opportunities:</strong> ${deptInfo.careers}</p>
-  `;
+  searchableElements.forEach(element => {
+    const text = element.textContent.toLowerCase();
+    if (text.includes(query)) {
+      results.push({
+        element: element,
+        text: element.textContent,
+        relevance: text.indexOf(query)
+      });
+    }
+  });
+  
+  // Sort by relevance
+  results.sort((a, b) => a.relevance - b.relevance);
+  
+  // Highlight results
+  highlightSearchResults(results.slice(0, 5));
+}
+
+function highlightSearchResults(results) {
+  document.querySelectorAll('.search-highlight').forEach(el => {
+    el.classList.remove('search-highlight');
+  });
+  
+  results.forEach(result => {
+    result.element.classList.add('search-highlight');
+    result.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+}
+
+function animateCounters() {
+  const counters = document.querySelectorAll('[data-count]');
+  
+  counters.forEach(counter => {
+    const target = parseInt(counter.getAttribute('data-count'));
+    const duration = 2000;
+    const increment = target / (duration / 16);
+    let current = 0;
+    
+    const updateCounter = () => {
+      current += increment;
+      if (current < target) {
+        counter.textContent = Math.floor(current).toLocaleString();
+        requestAnimationFrame(updateCounter);
+      } else {
+        counter.textContent = target.toLocaleString();
+      }
+    };
+    
+    updateCounter();
+  });
+}
+
+function enhanceScrollToTop() {
+  const scrollToTopBtn = document.getElementById('scrollToTop');
+  
+  if (scrollToTopBtn) {
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > 300) {
+        scrollToTopBtn.style.display = 'flex';
+        scrollToTopBtn.style.opacity = '1';
+      } else {
+        scrollToTopBtn.style.opacity = '0';
+        setTimeout(() => {
+          if (scrollToTopBtn.style.opacity === '0') {
+            scrollToTopBtn.style.display = 'none';
+          }
+        }, 300);
+      }
+    });
+    
+    scrollToTopBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
 }
 
 function showDepartmentModal(title, content) {
-  // Create modal HTML
   const modalHTML = `
     <div class="modal fade" id="departmentModal" tabindex="-1" aria-labelledby="departmentModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="departmentModalLabel">${title}</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div class="modal-header bg-primary text-white">
+            <h5 class="modal-title" id="departmentModalLabel">
+              <i class="bi bi-graduation-cap me-2"></i>${title}
+            </h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             ${content}
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <a href="register.html" class="btn btn-primary">Apply Now</a>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              <i class="bi bi-x-circle me-2"></i>Close
+            </button>
+            <a href="register.html" class="btn btn-primary">
+              <i class="bi bi-arrow-right me-2"></i>Apply Now
+            </a>
           </div>
         </div>
       </div>
     </div>
   `;
   
-  // Remove existing modal if any
   const existingModal = document.getElementById('departmentModal');
   if (existingModal) {
     existingModal.remove();
   }
   
-  // Add modal to body
   document.body.insertAdjacentHTML('beforeend', modalHTML);
   
-  // Show the modal
   const modal = new bootstrap.Modal(document.getElementById('departmentModal'));
   modal.show();
 }
 
-// About Page Secondary Navigation Functions
 document.addEventListener('DOMContentLoaded', function() {
-  // Handle secondary navigation active states (only for the secondary nav with bg-light class)
   const secondaryNavLinks = document.querySelectorAll('.navbar-light.bg-light .navbar-nav .nav-link');
   
   secondaryNavLinks.forEach(link => {
     link.addEventListener('click', function(e) {
-      // Remove active class from all secondary nav links
       secondaryNavLinks.forEach(l => l.classList.remove('active'));
       
-      // Add active class to clicked link
       this.classList.add('active');
     });
   });
   
-  // Update active state based on scroll position
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.navbar-light.bg-light .navbar-nav .nav-link[href^="#"]');
   
@@ -453,19 +314,41 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // Add scroll event listener
   window.addEventListener('scroll', updateActiveNavLink);
   
-  // Initial call to set active state
   updateActiveNavLink();
 });
 
-// Scroll to Top Button Functionality
 document.addEventListener('DOMContentLoaded', function() {
+  initializeAdvancedPreloader();
+  
+  initializeSearch();
+  enhanceScrollToTop();
+  initializeMusicPlayer();
+  initializeCollapsibleMusicPlayer();
+  
+  const observerOptions = {
+    threshold: 0.5,
+    rootMargin: '0px 0px -100px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounters();
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+  
+  const statsSection = document.querySelector('.stats-grid');
+  if (statsSection) {
+    observer.observe(statsSection);
+  }
+  
   const scrollToTopBtn = document.getElementById('scrollToTop');
   
   if (scrollToTopBtn) {
-    // Show/hide button based on scroll position
     window.addEventListener('scroll', function() {
       if (window.pageYOffset > 300) {
         scrollToTopBtn.style.display = 'flex';
@@ -474,7 +357,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
     
-    // Smooth scroll to top when clicked
     scrollToTopBtn.addEventListener('click', function(e) {
       e.preventDefault();
       window.scrollTo({
@@ -484,3 +366,249 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+function initializeMusicPlayer() {
+  const musicPlayer = document.getElementById('musicPlayer');
+  const musicToggle = document.getElementById('musicToggle');
+  const musicIcon = document.getElementById('musicIcon');
+  const volumeSlider = document.getElementById('volumeSlider');
+  const volumeIcon = document.getElementById('volumeIcon');
+  const backgroundMusic = document.getElementById('backgroundMusic');
+  
+  if (!musicPlayer || !backgroundMusic) return;
+  
+  const savedVolume = localStorage.getItem('iscpMusicVolume') || 25;
+  const savedMuted = localStorage.getItem('iscpMusicMuted') === 'true';
+  
+  backgroundMusic.volume = savedVolume / 100;
+  volumeSlider.value = savedVolume;
+  
+  updateVolumeIcon(savedVolume, savedMuted);
+  
+  musicToggle.addEventListener('click', function() {
+    if (backgroundMusic.paused) {
+      playMusic();
+    } else {
+      pauseMusic();
+    }
+  });
+  
+  volumeSlider.addEventListener('input', function() {
+    const volume = this.value / 100;
+    backgroundMusic.volume = volume;
+    localStorage.setItem('iscpMusicVolume', this.value);
+    updateVolumeIcon(this.value, false);
+  });
+  
+  volumeIcon.addEventListener('click', function() {
+    if (backgroundMusic.muted) {
+      unmuteMusic();
+    } else {
+      muteMusic();
+    }
+  });
+  
+  document.addEventListener('click', function() {
+    if (backgroundMusic.paused && !backgroundMusic.played.length) {
+      backgroundMusic.play().catch(e => {});
+    }
+  }, { once: true });
+  
+  backgroundMusic.addEventListener('loadeddata', function() {
+    musicToggle.classList.remove('loading');
+    musicToggle.disabled = false;
+  });
+  
+  backgroundMusic.addEventListener('ended', function() {
+    if (backgroundMusic.loop) {
+      backgroundMusic.currentTime = 0;
+      backgroundMusic.play().catch(e => {});
+    } else {
+      updateMusicButton(false);
+    }
+  });
+  
+  backgroundMusic.addEventListener('play', function() {
+    updateMusicButton(true);
+  });
+  
+  backgroundMusic.addEventListener('pause', function() {
+    updateMusicButton(false);
+  });
+  
+  backgroundMusic.addEventListener('error', function() {
+    musicToggle.classList.add('loading');
+    musicToggle.disabled = true;
+  });
+  
+  if (!savedMuted && savedVolume > 0) {
+    if (backgroundMusic.readyState >= 2) {
+      backgroundMusic.play().catch(e => {});
+    } else {
+      backgroundMusic.addEventListener('loadeddata', function() {
+        if (!savedMuted && savedVolume > 0) {
+          backgroundMusic.play().catch(e => {});
+        }
+      }, { once: true });
+    }
+  }
+}
+
+function playMusic() {
+  const backgroundMusic = document.getElementById('backgroundMusic');
+  const musicToggle = document.getElementById('musicToggle');
+  
+  if (backgroundMusic) {
+    musicToggle.classList.add('loading');
+    
+    if (backgroundMusic.readyState < 2) {
+      backgroundMusic.addEventListener('loadeddata', function() {
+        playMusic();
+      }, { once: true });
+      return;
+    }
+    
+    if (backgroundMusic.currentTime >= backgroundMusic.duration - 0.1) {
+      backgroundMusic.currentTime = 0;
+    }
+    
+    backgroundMusic.play().then(() => {
+      musicToggle.classList.remove('loading');
+      updateMusicButton(true);
+    }).catch(error => {
+      musicToggle.classList.remove('loading');
+      showMusicError('Please interact with the page to enable music playback');
+    });
+  }
+}
+
+function pauseMusic() {
+  const backgroundMusic = document.getElementById('backgroundMusic');
+  
+  if (backgroundMusic) {
+    backgroundMusic.pause();
+    updateMusicButton(false);
+  }
+}
+
+function updateMusicButton(isPlaying) {
+  const musicToggle = document.getElementById('musicToggle');
+  const musicIcon = document.getElementById('musicIcon');
+  
+  if (isPlaying) {
+    musicToggle.classList.add('playing');
+    musicIcon.className = 'bi bi-pause-fill';
+    musicToggle.title = 'Pause Music';
+  } else {
+    musicToggle.classList.remove('playing');
+    musicIcon.className = 'bi bi-play-fill';
+    musicToggle.title = 'Play Music';
+  }
+}
+
+function updateVolumeIcon(volume, isMuted) {
+  const volumeIcon = document.getElementById('volumeIcon');
+  
+  if (isMuted || volume == 0) {
+    volumeIcon.className = 'bi bi-volume-mute';
+    volumeIcon.title = 'Unmute';
+  } else if (volume < 30) {
+    volumeIcon.className = 'bi bi-volume-down';
+    volumeIcon.title = 'Volume: Low';
+  } else if (volume < 70) {
+    volumeIcon.className = 'bi bi-volume-up';
+    volumeIcon.title = 'Volume: Medium';
+  } else {
+    volumeIcon.className = 'bi bi-volume-up';
+    volumeIcon.title = 'Volume: High';
+  }
+}
+
+function muteMusic() {
+  const backgroundMusic = document.getElementById('backgroundMusic');
+  const volumeIcon = document.getElementById('volumeIcon');
+  
+  if (backgroundMusic) {
+    backgroundMusic.muted = true;
+    localStorage.setItem('iscpMusicMuted', 'true');
+    updateVolumeIcon(volumeSlider.value, true);
+  }
+}
+
+function unmuteMusic() {
+  const backgroundMusic = document.getElementById('backgroundMusic');
+  
+  if (backgroundMusic) {
+    backgroundMusic.muted = false;
+    localStorage.setItem('iscpMusicMuted', 'false');
+    updateVolumeIcon(volumeSlider.value, false);
+  }
+}
+
+function showMusicError(message) {
+  const errorDiv = document.createElement('div');
+  errorDiv.className = 'music-error';
+  errorDiv.textContent = message;
+  errorDiv.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #ef4444;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 1001;
+    font-size: 14px;
+    max-width: 300px;
+  `;
+  
+  document.body.appendChild(errorDiv);
+  
+  setTimeout(() => {
+    if (errorDiv.parentNode) {
+      errorDiv.parentNode.removeChild(errorDiv);
+    }
+  }, 5000);
+}
+
+
+
+function initializeCollapsibleMusicPlayer() {
+  const musicPlayer = document.getElementById('musicPlayer');
+  
+  if (!musicPlayer) return;
+  
+  let isCollapsed = false;
+  let collapseTimeout;
+  
+  const resetCollapseTimer = () => {
+    clearTimeout(collapseTimeout);
+    if (window.innerWidth <= 768) {
+      collapseTimeout = setTimeout(() => {
+        if (!isCollapsed) {
+          musicPlayer.classList.add('collapsed');
+          isCollapsed = true;
+        }
+      }, 5000);
+    }
+  };
+  
+  musicPlayer.addEventListener('mouseenter', () => {
+    if (isCollapsed) {
+      musicPlayer.classList.remove('collapsed');
+      isCollapsed = false;
+    }
+    resetCollapseTimer();
+  });
+  
+  musicPlayer.addEventListener('touchstart', () => {
+    if (isCollapsed) {
+      musicPlayer.classList.remove('collapsed');
+      isCollapsed = false;
+    }
+    resetCollapseTimer();
+  });
+  
+  resetCollapseTimer();
+}
