@@ -13,13 +13,13 @@
   width: 100%;
   height: 100%;
   background-color: rgba(6, 16, 92, 0.493);
-  z-index: 0;
+  z-index: 1;
 }
 
 .navbar,
 main {
   position: relative;
-  z-index: 1;
+  z-index: 10;
 }
 
 .hero-seal {
@@ -44,7 +44,7 @@ main {
 
 .nav-link {
   position: relative;
-  z-index: 1;
+  z-index: 11;
   transition: color 0.3s ease;
   margin: 0 5px;
   padding: 8px 16px !important;
@@ -256,6 +256,7 @@ main {
   border-radius: 16px;
   border: none;
   box-shadow: 0 20px 60px rgba(6, 16, 92, 0.15);
+  z-index: 1050;
 }
 
 .modal-header {
@@ -491,12 +492,15 @@ main {
   height: 100%;
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 50;
 }
 
 .college-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 30px rgba(6, 16, 92, 0.15);
   border-color: rgba(49, 130, 206, 0.2);
+  z-index: 150;
 }
 
 .college-header {
@@ -539,6 +543,8 @@ main {
   font-size: 0.9rem;
   transition: all 0.3s ease;
   margin-bottom: 16px;
+  position: relative;
+  z-index: 100;
 }
 
 .college-body .form-select:focus {
@@ -690,7 +696,7 @@ main {
   justify-content: center;
   font-weight: 700;
   font-size: 1.1rem;
-  z-index: 2;
+  z-index: 20;
   flex-shrink: 0;
 }
 
@@ -1080,7 +1086,7 @@ main {
   justify-content: center;
   margin: 0 auto;
   position: relative;
-  z-index: 2;
+  z-index: 20;
 }
 
 .timeline-number {
@@ -1864,7 +1870,7 @@ html {
   justify-content: center;
   text-decoration: none;
   transition: all 0.3s ease;
-  z-index: 1000;
+  z-index: 9999;
   box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
   opacity: 0;
 }
@@ -2000,6 +2006,7 @@ html {
   flex-direction: column;
   position: relative;
   overflow: hidden;
+  z-index: 50;
 }
 
 .college-card::after {
@@ -3113,7 +3120,7 @@ body.preloading {
   padding: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(49, 130, 206, 0.15);
-  z-index: 1000;
+  z-index: 9998;
   transition: all 0.3s ease;
   min-width: 160px;
   opacity: 0.8;
@@ -3330,9 +3337,56 @@ body.preloading {
   animation: musicLoading 1.5s ease-in-out infinite;
 }
 
-
-
 @keyframes musicLoading {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.1); }
+}
+
+.dropdown-menu {
+  z-index: 1000 !important;
+}
+
+.dropdown-item:hover {
+  z-index: 1001;
+}
+
+.form-select:focus {
+  z-index: 100;
+}
+
+.btn:focus {
+  z-index: 50;
+}
+
+.card:hover {
+  z-index: 100;
+}
+
+.modal-backdrop {
+  z-index: 1040 !important;
+}
+
+.modal {
+  z-index: 1050 !important;
+}
+
+.tooltip {
+  z-index: 1070 !important;
+}
+
+.popover {
+  z-index: 1060 !important;
+}
+
+.college-body .btn {
+  position: relative;
+  z-index: 200;
+}
+
+.college-body .btn:hover {
+  z-index: 250;
+}
+
+.college-body .btn:focus {
+  z-index: 300;
 }

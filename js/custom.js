@@ -171,10 +171,8 @@ function performSearch(query) {
     }
   });
   
-  // Sort by relevance
   results.sort((a, b) => a.relevance - b.relevance);
   
-  // Highlight results
   highlightSearchResults(results.slice(0, 5));
 }
 
@@ -241,6 +239,8 @@ function enhanceScrollToTop() {
 }
 
 function showDepartmentModal(title, content) {
+  console.log('showDepartmentModal called with:', title, content);
+  
   const modalHTML = `
     <div class="modal fade" id="departmentModal" tabindex="-1" aria-labelledby="departmentModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -269,13 +269,511 @@ function showDepartmentModal(title, content) {
   
   const existingModal = document.getElementById('departmentModal');
   if (existingModal) {
+    console.log('Removing existing modal');
     existingModal.remove();
   }
   
+  console.log('Inserting modal HTML');
   document.body.insertAdjacentHTML('beforeend', modalHTML);
   
-  const modal = new bootstrap.Modal(document.getElementById('departmentModal'));
-  modal.show();
+  const modalElement = document.getElementById('departmentModal');
+  console.log('Modal element found:', modalElement);
+  
+  if (typeof bootstrap !== 'undefined' && bootstrap.Modal) {
+    console.log('Bootstrap Modal class found, creating modal instance');
+    const modal = new bootstrap.Modal(modalElement);
+    console.log('Modal instance created:', modal);
+    modal.show();
+  } else {
+    console.error('Bootstrap Modal class not found. Bootstrap may not be loaded properly.');
+    modalElement.classList.add('show');
+    modalElement.style.display = 'block';
+    modalElement.setAttribute('aria-modal', 'true');
+    modalElement.removeAttribute('aria-hidden');
+    
+    const backdrop = document.createElement('div');
+    backdrop.className = 'modal-backdrop fade show';
+    document.body.appendChild(backdrop);
+    
+    const closeButtons = modalElement.querySelectorAll('[data-bs-dismiss="modal"], .btn-close');
+    closeButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        modalElement.classList.remove('show');
+        modalElement.style.display = 'none';
+        modalElement.setAttribute('aria-hidden', 'true');
+        modalElement.removeAttribute('aria-modal');
+        if (backdrop.parentNode) {
+          backdrop.parentNode.removeChild(backdrop);
+        }
+      });
+    });
+  }
+}
+
+function viewDepartment(collegeType, selectElementId) {
+  console.log('viewDepartment called with:', collegeType, selectElementId);
+  
+  const selectElement = document.getElementById(selectElementId);
+  console.log('Select element found:', selectElement);
+  
+  if (!selectElement) {
+    console.error('Select element not found:', selectElementId);
+    alert('Select element not found. Please check the console for details.');
+    return;
+  }
+  
+  const selectedValue = selectElement.value;
+  console.log('Selected value:', selectedValue);
+  
+  if (!selectedValue) {
+    alert('Please select a department first.');
+    return;
+  }
+  
+  let title = '';
+  let content = '';
+  
+  const departmentInfo = getDepartmentInfo(collegeType, selectedValue);
+  console.log('Department info:', departmentInfo);
+  
+  if (departmentInfo) {
+    title = departmentInfo.title;
+    content = departmentInfo.content;
+    console.log('Showing modal with title:', title);
+    showDepartmentModal(title, content);
+  } else {
+    console.error('Department info not found for:', collegeType, selectedValue);
+    alert('Department information not available.');
+  }
+}
+
+function getDepartmentInfo(collegeType, departmentValue) {
+  const departmentData = {
+    engineering: {
+      civil: {
+        title: 'Civil Engineering Department',
+        content: `
+          <h6><i class="bi bi-building me-2"></i>Civil Engineering</h6>
+          <p><strong>Program Overview:</strong> Our Civil Engineering program prepares students to design, construct, and maintain infrastructure projects including buildings, bridges, roads, and water systems.</p>
+          <p><strong>Career Opportunities:</strong> Structural Engineer, Transportation Engineer, Water Resources Engineer, Construction Manager</p>
+          <p><strong>Duration:</strong> 5 years (10 semesters)</p>
+          <p><strong>Units:</strong> 180 credit units</p>
+        `
+      },
+      mechanical: {
+        title: 'Mechanical Engineering Department',
+        content: `
+          <h6><i class="bi bi-gear me-2"></i>Mechanical Engineering</h6>
+          <p><strong>Program Overview:</strong> Focuses on the design and manufacturing of mechanical systems, machines, and thermal devices.</p>
+          <p><strong>Career Opportunities:</strong> Mechanical Engineer, HVAC Engineer, Automotive Engineer, Manufacturing Engineer</p>
+          <p><strong>Duration:</strong> 5 years (10 semesters)</p>
+          <p><strong>Units:</strong> 180 credit units</p>
+        `
+      },
+      electrical: {
+        title: 'Electrical Engineering Department',
+        content: `
+          <h6><i class="bi bi-lightning me-2"></i>Electrical Engineering</h6>
+          <p><strong>Program Overview:</strong> Covers electrical systems, power generation, electronics, and telecommunications.</p>
+          <p><strong>Career Opportunities:</strong> Electrical Engineer, Power Engineer, Telecommunications Engineer, Control Systems Engineer</p>
+          <p><strong>Duration:</strong> 5 years (10 semesters)</p>
+          <p><strong>Units:</strong> 180 credit units</p>
+        `
+      },
+      electronics: {
+        title: 'Electronics Engineering Department',
+        content: `
+          <h6><i class="bi bi-cpu me-2"></i>Electronics Engineering</h6>
+          <p><strong>Program Overview:</strong> Specializes in electronic devices, circuits, and communication systems.</p>
+          <p><strong>Career Opportunities:</strong> Electronics Engineer, Communications Engineer, Semiconductor Engineer, RF Engineer</p>
+          <p><strong>Duration:</strong> 5 years (10 semesters)</p>
+          <p><strong>Units:</strong> 180 credit units</p>
+        `
+      },
+      computer: {
+        title: 'Computer Engineering Department',
+        content: `
+          <h6><i class="bi bi-laptop me-2"></i>Computer Engineering</h6>
+          <p><strong>Program Overview:</strong> Combines electrical engineering and computer science to design computer hardware and software systems.</p>
+          <p><strong>Career Opportunities:</strong> Computer Engineer, Hardware Engineer, Embedded Systems Engineer, Network Engineer</p>
+          <p><strong>Duration:</strong> 5 years (10 semesters)</p>
+          <p><strong>Units:</strong> 180 credit units</p>
+        `
+      },
+      chemical: {
+        title: 'Chemical Engineering Department',
+        content: `
+          <h6><i class="bi bi-flask me-2"></i>Chemical Engineering</h6>
+          <p><strong>Program Overview:</strong> Focuses on chemical processes, materials science, and industrial chemistry applications.</p>
+          <p><strong>Career Opportunities:</strong> Chemical Engineer, Process Engineer, Materials Engineer, Environmental Engineer</p>
+          <p><strong>Duration:</strong> 5 years (10 semesters)</p>
+          <p><strong>Units:</strong> 180 credit units</p>
+        `
+      },
+      industrial: {
+        title: 'Industrial Engineering Department',
+        content: `
+          <h6><i class="bi bi-diagram-3 me-2"></i>Industrial Engineering</h6>
+          <p><strong>Program Overview:</strong> Optimizes complex processes and systems to improve efficiency and productivity.</p>
+          <p><strong>Career Opportunities:</strong> Industrial Engineer, Operations Manager, Quality Engineer, Supply Chain Engineer</p>
+          <p><strong>Duration:</strong> 5 years (10 semesters)</p>
+          <p><strong>Units:</strong> 180 credit units</p>
+        `
+      }
+    },
+    it: {
+      bsit: {
+        title: 'BS Information Technology Department',
+        content: `
+          <h6><i class="bi bi-laptop me-2"></i>BS Information Technology</h6>
+          <p><strong>Program Overview:</strong> Prepares students for IT careers focusing on software development, database management, and network administration.</p>
+          <p><strong>Career Opportunities:</strong> Software Developer, IT Consultant, Database Administrator, Network Administrator</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      },
+      bscs: {
+        title: 'BS Computer Science Department',
+        content: `
+          <h6><i class="bi bi-code-square me-2"></i>BS Computer Science</h6>
+          <p><strong>Program Overview:</strong> Focuses on algorithms, programming, software engineering, and computer systems theory.</p>
+          <p><strong>Career Opportunities:</strong> Software Engineer, Data Scientist, Systems Analyst, Research Scientist</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      },
+      bsis: {
+        title: 'BS Information Systems Department',
+        content: `
+          <h6><i class="bi bi-diagram-2 me-2"></i>BS Information Systems</h6>
+          <p><strong>Program Overview:</strong> Combines business and technology to design and manage information systems for organizations.</p>
+          <p><strong>Career Opportunities:</strong> Business Analyst, IT Project Manager, Systems Analyst, IT Consultant</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      },
+      bsemc: {
+        title: 'BS Entertainment and Multimedia Computing Department',
+        content: `
+          <h6><i class="bi bi-film me-2"></i>BS Entertainment and Multimedia Computing</h6>
+          <p><strong>Program Overview:</strong> Specializes in game development, digital media, animation, and interactive entertainment.</p>
+          <p><strong>Career Opportunities:</strong> Game Developer, Multimedia Artist, Animation Specialist, UX Designer</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      },
+      bsai: {
+        title: 'BS Artificial Intelligence Department',
+        content: `
+          <h6><i class="bi bi-robot me-2"></i>BS Artificial Intelligence</h6>
+          <p><strong>Program Overview:</strong> Focuses on machine learning, neural networks, and intelligent systems development.</p>
+          <p><strong>Career Opportunities:</strong> AI Engineer, Machine Learning Engineer, Data Scientist, Research Scientist</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      },
+      bsds: {
+        title: 'BS Data Science Department',
+        content: `
+          <h6><i class="bi bi-graph-up me-2"></i>BS Data Science</h6>
+          <p><strong>Program Overview:</strong> Combines statistics, programming, and domain expertise to extract insights from data.</p>
+          <p><strong>Career Opportunities:</strong> Data Scientist, Data Analyst, Business Intelligence Analyst, Statistician</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      }
+    },
+    business: {
+      bsba: {
+        title: 'BS Business Administration Department',
+        content: `
+          <h6><i class="bi bi-briefcase me-2"></i>BS Business Administration</h6>
+          <p><strong>Program Overview:</strong> Provides comprehensive business education covering management, marketing, finance, and operations.</p>
+          <p><strong>Career Opportunities:</strong> Business Manager, Entrepreneur, Marketing Manager, Operations Manager</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      },
+      bsa: {
+        title: 'BS Accountancy Department',
+        content: `
+          <h6><i class="bi bi-calculator me-2"></i>BS Accountancy</h6>
+          <p><strong>Program Overview:</strong> Prepares students for professional accounting careers with focus on financial reporting and auditing.</p>
+          <p><strong>Career Opportunities:</strong> Certified Public Accountant, Auditor, Financial Analyst, Tax Consultant</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      },
+      bsfm: {
+        title: 'BS Financial Management Department',
+        content: `
+          <h6><i class="bi bi-cash-stack me-2"></i>BS Financial Management</h6>
+          <p><strong>Program Overview:</strong> Focuses on financial planning, investment analysis, and corporate finance management.</p>
+          <p><strong>Career Opportunities:</strong> Financial Manager, Investment Analyst, Financial Planner, Risk Manager</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      },
+      bsmm: {
+        title: 'BS Marketing Management Department',
+        content: `
+          <h6><i class="bi bi-megaphone me-2"></i>BS Marketing Management</h6>
+          <p><strong>Program Overview:</strong> Covers marketing strategies, consumer behavior, digital marketing, and brand management.</p>
+          <p><strong>Career Opportunities:</strong> Marketing Manager, Brand Manager, Digital Marketing Specialist, Market Researcher</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      },
+      bshm: {
+        title: 'BS Hospitality Management Department',
+        content: `
+          <h6><i class="bi bi-house-heart me-2"></i>BS Hospitality Management</h6>
+          <p><strong>Program Overview:</strong> Prepares students for careers in hotels, restaurants, tourism, and event management.</p>
+          <p><strong>Career Opportunities:</strong> Hotel Manager, Restaurant Manager, Event Planner, Tourism Officer</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      },
+      bstm: {
+        title: 'BS Tourism Management Department',
+        content: `
+          <h6><i class="bi bi-airplane me-2"></i>BS Tourism Management</h6>
+          <p><strong>Program Overview:</strong> Focuses on tourism development, travel management, and sustainable tourism practices.</p>
+          <p><strong>Career Opportunities:</strong> Tourism Manager, Travel Consultant, Tour Guide, Tourism Development Officer</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      },
+      bsrm: {
+        title: 'BS Real Estate Management Department',
+        content: `
+          <h6><i class="bi bi-building me-2"></i>BS Real Estate Management</h6>
+          <p><strong>Program Overview:</strong> Covers real estate development, property management, and real estate investment.</p>
+          <p><strong>Career Opportunities:</strong> Real Estate Manager, Property Developer, Real Estate Broker, Investment Analyst</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      }
+    },
+    education: {
+      bse: {
+        title: 'BS Education Department',
+        content: `
+          <h6><i class="bi bi-mortarboard me-2"></i>BS Education</h6>
+          <p><strong>Program Overview:</strong> General education program preparing students for teaching careers in various subjects.</p>
+          <p><strong>Career Opportunities:</strong> Teacher, Educational Administrator, Curriculum Developer, Educational Consultant</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      },
+      'bse-english': {
+        title: 'BS Education - English Department',
+        content: `
+          <h6><i class="bi bi-journal-text me-2"></i>BS Education - English</h6>
+          <p><strong>Program Overview:</strong> Specializes in English language teaching, literature, and communication skills.</p>
+          <p><strong>Career Opportunities:</strong> English Teacher, Language Instructor, Content Writer, Communication Specialist</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      },
+      'bse-math': {
+        title: 'BS Education - Mathematics Department',
+        content: `
+          <h6><i class="bi bi-plus-slash-minus me-2"></i>BS Education - Mathematics</h6>
+          <p><strong>Program Overview:</strong> Focuses on mathematics education, curriculum development, and mathematical concepts.</p>
+          <p><strong>Career Opportunities:</strong> Math Teacher, Math Curriculum Developer, Educational Researcher, Math Tutor</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      },
+      'bse-science': {
+        title: 'BS Education - Science Department',
+        content: `
+          <h6><i class="bi bi-flask me-2"></i>BS Education - Science</h6>
+          <p><strong>Program Overview:</strong> Prepares students to teach various science subjects including biology, chemistry, and physics.</p>
+          <p><strong>Career Opportunities:</strong> Science Teacher, Science Lab Coordinator, Science Curriculum Developer, Science Educator</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      },
+      'bse-social': {
+        title: 'BS Education - Social Studies Department',
+        content: `
+          <h6><i class="bi bi-globe me-2"></i>BS Education - Social Studies</h6>
+          <p><strong>Program Overview:</strong> Covers history, geography, civics, and social sciences for teaching purposes.</p>
+          <p><strong>Career Opportunities:</strong> Social Studies Teacher, History Teacher, Geography Teacher, Social Science Educator</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      },
+      'bse-filipino': {
+        title: 'BS Education - Filipino Department',
+        content: `
+          <h6><i class="bi bi-translate me-2"></i>BS Education - Filipino</h6>
+          <p><strong>Program Overview:</strong> Specializes in Filipino language teaching, literature, and cultural studies.</p>
+          <p><strong>Career Opportunities:</strong> Filipino Teacher, Language Instructor, Cultural Educator, Literature Teacher</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      },
+      'bse-pe': {
+        title: 'BS Education - Physical Education Department',
+        content: `
+          <h6><i class="bi bi-trophy me-2"></i>BS Education - Physical Education</h6>
+          <p><strong>Program Overview:</strong> Focuses on physical education, sports coaching, and health promotion.</p>
+          <p><strong>Career Opportunities:</strong> PE Teacher, Sports Coach, Fitness Instructor, Health Educator</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      }
+    },
+    arts: {
+      bspsych: {
+        title: 'BS Psychology Department',
+        content: `
+          <h6><i class="bi bi-brain me-2"></i>BS Psychology</h6>
+          <p><strong>Program Overview:</strong> Studies human behavior, mental processes, and psychological principles for understanding human nature.</p>
+          <p><strong>Career Opportunities:</strong> Psychologist, Human Resources Specialist, Counselor, Research Assistant</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      },
+      bsbio: {
+        title: 'BS Biology Department',
+        content: `
+          <h6><i class="bi bi-tree me-2"></i>BS Biology</h6>
+          <p><strong>Program Overview:</strong> Explores living organisms, their structure, function, growth, and evolution.</p>
+          <p><strong>Career Opportunities:</strong> Biologist, Research Scientist, Environmental Consultant, Science Teacher</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      },
+      bschem: {
+        title: 'BS Chemistry Department',
+        content: `
+          <h6><i class="bi bi-droplet me-2"></i>BS Chemistry</h6>
+          <p><strong>Program Overview:</strong> Studies matter, its properties, composition, and the changes it undergoes.</p>
+          <p><strong>Career Opportunities:</strong> Chemist, Laboratory Technician, Quality Control Analyst, Research Scientist</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      },
+      bsmath: {
+        title: 'BS Mathematics Department',
+        content: `
+          <h6><i class="bi bi-infinity me-2"></i>BS Mathematics</h6>
+          <p><strong>Program Overview:</strong> Focuses on mathematical theory, problem-solving, and analytical thinking.</p>
+          <p><strong>Career Opportunities:</strong> Mathematician, Data Analyst, Actuary, Math Teacher</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      },
+      bsphysics: {
+        title: 'BS Physics Department',
+        content: `
+          <h6><i class="bi bi-atom me-2"></i>BS Physics</h6>
+          <p><strong>Program Overview:</strong> Studies matter, energy, and their interactions in the physical universe.</p>
+          <p><strong>Career Opportunities:</strong> Physicist, Research Scientist, Engineering Consultant, Science Teacher</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      },
+      bscomm: {
+        title: 'BS Communication Department',
+        content: `
+          <h6><i class="bi bi-chat-dots me-2"></i>BS Communication</h6>
+          <p><strong>Program Overview:</strong> Covers media studies, public relations, journalism, and communication theory.</p>
+          <p><strong>Career Opportunities:</strong> Journalist, Public Relations Specialist, Media Producer, Communication Consultant</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      },
+      bsenglish: {
+        title: 'BS English Department',
+        content: `
+          <h6><i class="bi bi-book me-2"></i>BS English</h6>
+          <p><strong>Program Overview:</strong> Focuses on English literature, language, and communication skills.</p>
+          <p><strong>Career Opportunities:</strong> English Teacher, Writer, Editor, Communication Specialist</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      }
+    },
+    health: {
+      bsn: {
+        title: 'BS Nursing Department',
+        content: `
+          <h6><i class="bi bi-heart-pulse me-2"></i>BS Nursing</h6>
+          <p><strong>Program Overview:</strong> Prepares students for professional nursing practice with focus on patient care and health promotion.</p>
+          <p><strong>Career Opportunities:</strong> Registered Nurse, Nurse Educator, Clinical Nurse Specialist, Nurse Administrator</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      },
+      bsmls: {
+        title: 'BS Medical Laboratory Science Department',
+        content: `
+          <h6><i class="bi bi-microscope me-2"></i>BS Medical Laboratory Science</h6>
+          <p><strong>Program Overview:</strong> Focuses on laboratory testing, diagnostic procedures, and medical research support.</p>
+          <p><strong>Career Opportunities:</strong> Medical Technologist, Laboratory Manager, Research Assistant, Quality Control Specialist</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      },
+      bspt: {
+        title: 'BS Physical Therapy Department',
+        content: `
+          <h6><i class="bi bi-person-walking me-2"></i>BS Physical Therapy</h6>
+          <p><strong>Program Overview:</strong> Prepares students to help patients recover movement and manage pain through therapeutic exercises.</p>
+          <p><strong>Career Opportunities:</strong> Physical Therapist, Rehabilitation Specialist, Sports Therapist, Pediatric Therapist</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      },
+      bsot: {
+        title: 'BS Occupational Therapy Department',
+        content: `
+          <h6><i class="bi bi-tools me-2"></i>BS Occupational Therapy</h6>
+          <p><strong>Program Overview:</strong> Focuses on helping patients develop skills for daily living and work activities.</p>
+          <p><strong>Career Opportunities:</strong> Occupational Therapist, Rehabilitation Specialist, Pediatric Therapist, Geriatric Therapist</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      },
+      bspharm: {
+        title: 'BS Pharmacy Department',
+        content: `
+          <h6><i class="bi bi-capsule me-2"></i>BS Pharmacy</h6>
+          <p><strong>Program Overview:</strong> Prepares students for pharmaceutical practice, drug development, and medication management.</p>
+          <p><strong>Career Opportunities:</strong> Pharmacist, Pharmaceutical Researcher, Drug Safety Specialist, Clinical Pharmacist</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      },
+      bsmt: {
+        title: 'BS Medical Technology Department',
+        content: `
+          <h6><i class="bi bi-vial me-2"></i>BS Medical Technology</h6>
+          <p><strong>Program Overview:</strong> Focuses on laboratory medicine, diagnostic testing, and medical research.</p>
+          <p><strong>Career Opportunities:</strong> Medical Technologist, Laboratory Manager, Research Scientist, Quality Assurance Specialist</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      },
+      bsrt: {
+        title: 'BS Radiologic Technology Department',
+        content: `
+          <h6><i class="bi bi-camera me-2"></i>BS Radiologic Technology</h6>
+          <p><strong>Program Overview:</strong> Prepares students to perform diagnostic imaging procedures using various radiological equipment.</p>
+          <p><strong>Career Opportunities:</strong> Radiologic Technologist, MRI Technologist, CT Technologist, Radiation Safety Officer</p>
+          <p><strong>Duration:</strong> 4 years (8 semesters)</p>
+          <p><strong>Units:</strong> 144 credit units</p>
+        `
+      }
+    }
+  };
+  
+  return departmentData[collegeType]?.[departmentValue] || null;
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -611,7 +1109,6 @@ function initializeCollapsibleMusicPlayer() {
   resetCollapseTimer();
 }
 
-// Search functionality
 document.addEventListener('DOMContentLoaded', function() {
   const searchInput = document.getElementById('searchInput');
   const searchForm = searchInput?.closest('form');
@@ -622,7 +1119,6 @@ document.addEventListener('DOMContentLoaded', function() {
       performSearch(searchInput.value);
     });
     
-    // Real-time search as user types
     searchInput.addEventListener('input', function() {
       if (this.value.length > 2) {
         performSearch(this.value);
@@ -647,7 +1143,6 @@ function performSearch(query) {
   
   let hasResults = false;
   
-  // Search through college cards
   collegeCards.forEach(card => {
     const title = card.querySelector('.college-title')?.textContent.toLowerCase() || '';
     const description = card.querySelector('.college-description')?.textContent.toLowerCase() || '';
@@ -663,7 +1158,6 @@ function performSearch(query) {
     }
   });
   
-  // Search through testimonials
   testimonialCards.forEach(card => {
     const text = card.querySelector('.testimonial-text')?.textContent.toLowerCase() || '';
     const author = card.querySelector('.author-name')?.textContent.toLowerCase() || '';
@@ -678,7 +1172,6 @@ function performSearch(query) {
     }
   });
   
-  // Search through about section
   if (aboutSection) {
     const aboutTitle = aboutSection.querySelector('.about-title')?.textContent.toLowerCase() || '';
     const aboutDescription = aboutSection.querySelector('.about-description')?.textContent.toLowerCase() || '';
@@ -691,7 +1184,6 @@ function performSearch(query) {
     }
   }
   
-  // Search through stats
   if (statsGrid) {
     const statCards = statsGrid.querySelectorAll('.stat-card');
     statCards.forEach(card => {
@@ -707,12 +1199,10 @@ function performSearch(query) {
     });
   }
   
-  // Show search results message
   showSearchResults(query, hasResults);
 }
 
 function showSearchResults(query, hasResults) {
-  // Remove existing search results message
   const existingMessage = document.querySelector('.search-results-message');
   if (existingMessage) {
     existingMessage.remove();
@@ -730,7 +1220,6 @@ function showSearchResults(query, hasResults) {
     `;
     searchForm.appendChild(messageDiv);
     
-    // Auto-remove message after 3 seconds
     setTimeout(() => {
       if (messageDiv.parentNode) {
         messageDiv.remove();
@@ -757,7 +1246,6 @@ function showAllContent() {
     card.style.opacity = '1';
   });
   
-  // Remove search results message
   const existingMessage = document.querySelector('.search-results-message');
   if (existingMessage) {
     existingMessage.remove();
