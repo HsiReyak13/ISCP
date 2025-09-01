@@ -6,16 +6,20 @@
     <title>International State College of the Philippines</title>
     <link rel="stylesheet" href="/css/bootstrap.css" />
     <link rel="stylesheet" href="/css/custom.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
+    />
   </head>
   <body>
-    <!-- Preloader -->
     <div id="preloader" class="preloader">
       <div class="preloader-content">
         <div class="preloader-logo">
-          <img src="/images/Seal.png" alt="ISCP Logo" height="80">
+          <img src="/images/Seal.png" alt="ISCP Logo" height="100" />
         </div>
-        <h3 class="preloader-title">International State College of the Philippines</h3>
+        <h3 class="preloader-title">
+          International State College of the Philippines
+        </h3>
         <div class="preloader-spinner">
           <div class="spinner-ring"></div>
           <div class="spinner-ring"></div>
@@ -62,14 +66,24 @@
               <a class="nav-link" href="research.html">
                 <i class="bi bi-flask"></i> Research
               </a>
-              <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
+              <a
+                class="nav-link"
+                href="#"
+                data-bs-toggle="modal"
+                data-bs-target="#loginModal"
+              >
                 <i class="bi bi-box-arrow-in-right"></i> Login
               </a>
             </div>
-            <!-- Search Bar -->
             <form class="d-flex ms-3">
               <div class="input-group">
-                <input class="form-control" type="search" placeholder="Search ISCP..." aria-label="Search" id="searchInput">
+                <input
+                  class="form-control"
+                  type="search"
+                  placeholder="Search ISCP..."
+                  aria-label="Search"
+                  id="searchInput"
+                />
                 <button class="btn btn-outline-light" type="submit">
                   <i class="bi bi-search"></i>
                 </button>
@@ -81,6 +95,9 @@
       <main
         class="container text-center text-white d-flex flex-column justify-content-center align-items-center vh-100"
       >
+        <div class="hero-seal mb-4">
+          <img src="/images/Seal.png" alt="ISCP Seal" class="hero-seal-img" />
+        </div>
         <h1 class="display-4 fw-bold">
           International State College of the Philippines
         </h1>
@@ -151,18 +168,24 @@
       <div class="container">
         <div class="text-center mb-5">
           <h2 class="section-title">Our Colleges & Departments</h2>
-          <p class="section-subtitle">Explore the diverse academic programs offered across our colleges</p>
+          <p class="section-subtitle">
+            Explore the diverse academic programs offered across our colleges
+          </p>
         </div>
-        
+
         <div class="row">
           <div class="col-lg-6 col-md-6 mb-4">
             <div class="college-card">
               <div class="college-header">
                 <h4 class="college-title">College of Engineering</h4>
-                <p class="college-description">Building the future through innovation and technology</p>
+                <p class="college-description">
+                  Building the future through innovation and technology
+                </p>
               </div>
               <div class="college-body">
-                <label for="engineeringDept" class="form-label">Select Department:</label>
+                <label for="engineeringDept" class="form-label"
+                  >Select Department:</label
+                >
                 <select class="form-select" id="engineeringDept">
                   <option value="">Choose a department...</option>
                   <option value="civil">Civil Engineering</option>
@@ -174,7 +197,11 @@
                   <option value="industrial">Industrial Engineering</option>
                 </select>
                 <div class="mt-3">
-                  <button type="button" class="btn btn-outline-primary btn-sm" onclick="viewDepartment('engineering', 'engineeringDept')">
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary btn-sm"
+                    onclick="viewDepartment('engineering', 'engineeringDept')"
+                  >
                     View Department Details
                   </button>
                 </div>
@@ -186,21 +213,31 @@
             <div class="college-card">
               <div class="college-header">
                 <h4 class="college-title">College of Information Technology</h4>
-                <p class="college-description">Driving digital transformation and innovation</p>
+                <p class="college-description">
+                  Driving digital transformation and innovation
+                </p>
               </div>
               <div class="college-body">
-                <label for="itDept" class="form-label">Select Department:</label>
+                <label for="itDept" class="form-label"
+                  >Select Department:</label
+                >
                 <select class="form-select" id="itDept">
                   <option value="">Choose a department...</option>
                   <option value="bsit">BS Information Technology</option>
                   <option value="bscs">BS Computer Science</option>
                   <option value="bsis">BS Information Systems</option>
-                  <option value="bsemc">BS Entertainment and Multimedia Computing</option>
+                  <option value="bsemc">
+                    BS Entertainment and Multimedia Computing
+                  </option>
                   <option value="bsai">BS Artificial Intelligence</option>
                   <option value="bsds">BS Data Science</option>
                 </select>
                 <div class="mt-3">
-                  <button type="button" class="btn btn-outline-primary btn-sm" onclick="viewDepartment('it', 'itDept')">
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary btn-sm"
+                    onclick="viewDepartment('it', 'itDept')"
+                  >
                     View Department Details
                   </button>
                 </div>
@@ -211,11 +248,17 @@
           <div class="col-lg-6 col-md-6 mb-4">
             <div class="college-card">
               <div class="college-header">
-                <h4 class="college-title">College of Business Administration</h4>
-                <p class="college-description">Shaping future business leaders and entrepreneurs</p>
+                <h4 class="college-title">
+                  College of Business Administration
+                </h4>
+                <p class="college-description">
+                  Shaping future business leaders and entrepreneurs
+                </p>
               </div>
               <div class="college-body">
-                <label for="businessDept" class="form-label">Select Department:</label>
+                <label for="businessDept" class="form-label"
+                  >Select Department:</label
+                >
                 <select class="form-select" id="businessDept">
                   <option value="">Choose a department...</option>
                   <option value="bsba">BS Business Administration</option>
@@ -227,7 +270,11 @@
                   <option value="bsrm">BS Real Estate Management</option>
                 </select>
                 <div class="mt-3">
-                  <button type="button" class="btn btn-outline-primary btn-sm" onclick="viewDepartment('business', 'businessDept')">
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary btn-sm"
+                    onclick="viewDepartment('business', 'businessDept')"
+                  >
                     View Department Details
                   </button>
                 </div>
@@ -239,22 +286,34 @@
             <div class="college-card">
               <div class="college-header">
                 <h4 class="college-title">College of Education</h4>
-                <p class="college-description">Nurturing educators and shaping young minds</p>
+                <p class="college-description">
+                  Nurturing educators and shaping young minds
+                </p>
               </div>
               <div class="college-body">
-                <label for="educationDept" class="form-label">Select Department:</label>
+                <label for="educationDept" class="form-label"
+                  >Select Department:</label
+                >
                 <select class="form-select" id="educationDept">
                   <option value="">Choose a department...</option>
                   <option value="bse">BS Education</option>
                   <option value="bse-english">BS Education - English</option>
                   <option value="bse-math">BS Education - Mathematics</option>
                   <option value="bse-science">BS Education - Science</option>
-                  <option value="bse-social">BS Education - Social Studies</option>
+                  <option value="bse-social">
+                    BS Education - Social Studies
+                  </option>
                   <option value="bse-filipino">BS Education - Filipino</option>
-                  <option value="bse-pe">BS Education - Physical Education</option>
+                  <option value="bse-pe">
+                    BS Education - Physical Education
+                  </option>
                 </select>
                 <div class="mt-3">
-                  <button type="button" class="btn btn-outline-primary btn-sm" onclick="viewDepartment('education', 'educationDept')">
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary btn-sm"
+                    onclick="viewDepartment('education', 'educationDept')"
+                  >
                     View Department Details
                   </button>
                 </div>
@@ -266,10 +325,14 @@
             <div class="college-card">
               <div class="college-header">
                 <h4 class="college-title">College of Arts and Sciences</h4>
-                <p class="college-description">Exploring human knowledge and creative expression</p>
+                <p class="college-description">
+                  Exploring human knowledge and creative expression
+                </p>
               </div>
               <div class="college-body">
-                <label for="artsDept" class="form-label">Select Department:</label>
+                <label for="artsDept" class="form-label"
+                  >Select Department:</label
+                >
                 <select class="form-select" id="artsDept">
                   <option value="">Choose a department...</option>
                   <option value="bspsych">BS Psychology</option>
@@ -281,7 +344,11 @@
                   <option value="bsenglish">BS English</option>
                 </select>
                 <div class="mt-3">
-                  <button type="button" class="btn btn-outline-primary btn-sm" onclick="viewDepartment('arts', 'artsDept')">
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary btn-sm"
+                    onclick="viewDepartment('arts', 'artsDept')"
+                  >
                     View Department Details
                   </button>
                 </div>
@@ -293,10 +360,14 @@
             <div class="college-card">
               <div class="college-header">
                 <h4 class="college-title">College of Health Sciences</h4>
-                <p class="college-description">Advancing healthcare and wellness</p>
+                <p class="college-description">
+                  Advancing healthcare and wellness
+                </p>
               </div>
               <div class="college-body">
-                <label for="healthDept" class="form-label">Select Department:</label>
+                <label for="healthDept" class="form-label"
+                  >Select Department:</label
+                >
                 <select class="form-select" id="healthDept">
                   <option value="">Choose a department...</option>
                   <option value="bsn">BS Nursing</option>
@@ -308,7 +379,11 @@
                   <option value="bsrt">BS Radiologic Technology</option>
                 </select>
                 <div class="mt-3">
-                  <button type="button" class="btn btn-outline-primary btn-sm" onclick="viewDepartment('health', 'healthDept')">
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary btn-sm"
+                    onclick="viewDepartment('health', 'healthDept')"
+                  >
                     View Department Details
                   </button>
                 </div>
@@ -319,16 +394,21 @@
       </div>
     </section>
 
-    <!-- Student Testimonials Section -->
     <section class="testimonials-section py-5 bg-light">
       <div class="container">
         <div class="text-center mb-5">
           <h2 class="section-title">What Our Students Say</h2>
-          <p class="section-subtitle">Mga kwento ng mga students namin na sobrang legit promise! 😂</p>
+          <p class="section-subtitle">
+            Mga kwento ng mga students namin na sobrang legit promise! 😂
+          </p>
         </div>
-        
+
         <div class="row">
-          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+          <div
+            class="col-lg-4 col-md-6 mb-4"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
             <div class="testimonial-card">
               <div class="testimonial-content">
                 <div class="testimonial-rating mb-3">
@@ -339,9 +419,11 @@
                   <i class="bi bi-star-fill text-warning"></i>
                 </div>
                 <p class="testimonial-text">
-                  "Grabe ISCP talaga! Dati akong tamad na student, pero ngayon naging sigma grindset na ako! 
-                  Yung professors namin sobrang supportive, kahit na minsan hindi ko maintindihan yung lessons nila. 
-                  Pero legit, dito ako natuto na hindi lang puro ML (Mobile Legends) dapat, may studies din! 😤💪"
+                  "Grabe ISCP talaga! Dati akong tamad na student, pero ngayon
+                  naging sigma grindset na ako! Yung professors namin sobrang
+                  supportive, kahit na minsan hindi ko maintindihan yung lessons
+                  nila. Pero legit, dito ako natuto na hindi lang puro ML
+                  (Mobile Legends) dapat, may studies din! 😤💪"
                 </p>
                 <div class="testimonial-author">
                   <div class="author-avatar">
@@ -349,14 +431,20 @@
                   </div>
                   <div class="author-info">
                     <h6 class="author-name">Maria "Sigma Grindset" Santos</h6>
-                    <span class="author-program">BS Computer Science, Class of 2023</span>
+                    <span class="author-program"
+                      >BS Computer Science, Class of 2023</span
+                    >
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          
-          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+
+          <div
+            class="col-lg-4 col-md-6 mb-4"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             <div class="testimonial-card">
               <div class="testimonial-content">
                 <div class="testimonial-rating mb-3">
@@ -367,10 +455,12 @@
                   <i class="bi bi-star-fill text-warning"></i>
                 </div>
                 <p class="testimonial-text">
-                  "Bro, yung research opportunities dito sa ISCP, sobrang next level! Nakapag-research ako about 
-                  'Chad vs Virgin Engineering Principles' tapos naging viral pa sa TikTok! Yung thesis ko about 
-                  'Meme Economics in Construction' - legit na may sense siya promise! Dito ko na-realize na engineering 
-                  is not just about math, it's about being a gigachad! 🚀🔥"
+                  "Bro, yung research opportunities dito sa ISCP, sobrang next
+                  level! Nakapag-research ako about 'Chad vs Virgin Engineering
+                  Principles' tapos naging viral pa sa TikTok! Yung thesis ko
+                  about 'Meme Economics in Construction' - legit na may sense
+                  siya promise! Dito ko na-realize na engineering is not just
+                  about math, it's about being a gigachad! 🚀🔥"
                 </p>
                 <div class="testimonial-author">
                   <div class="author-avatar">
@@ -378,14 +468,20 @@
                   </div>
                   <div class="author-info">
                     <h6 class="author-name">Juan "Gigachad" Dela Cruz</h6>
-                    <span class="author-program">BS Engineering, Class of 2024</span>
+                    <span class="author-program"
+                      >BS Engineering, Class of 2024</span
+                    >
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          
-          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+
+          <div
+            class="col-lg-4 col-md-6 mb-4"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
             <div class="testimonial-card">
               <div class="testimonial-content">
                 <div class="testimonial-rating mb-3">
@@ -396,10 +492,13 @@
                   <i class="bi bi-star-fill text-warning"></i>
                 </div>
                 <p class="testimonial-text">
-                  "Sis, yung international exposure dito sa ISCP, grabe! May classmate ako from Antarctica campus, 
-                  may from Jupiter campus pa! Tapos yung business lessons namin, hindi lang puro theory - may practical 
-                  application pa! Natuto ako na hindi lang puro 'buy low, sell high' dapat, may 'meme marketing strategy' 
-                  din! Dito ko na-discover na business is not just about money, it's about being a karen when needed! 💅✨"
+                  "Sis, yung international exposure dito sa ISCP, grabe! May
+                  classmate ako from Antarctica campus, may from Jupiter campus
+                  pa! Tapos yung business lessons namin, hindi lang puro theory
+                  - may practical application pa! Natuto ako na hindi lang puro
+                  'buy low, sell high' dapat, may 'meme marketing strategy' din!
+                  Dito ko na-discover na business is not just about money, it's
+                  about being a karen when needed! 💅✨"
                 </p>
                 <div class="testimonial-author">
                   <div class="author-avatar">
@@ -407,14 +506,20 @@
                   </div>
                   <div class="author-info">
                     <h6 class="author-name">Sarah "Karen Mode" Johnson</h6>
-                    <span class="author-program">BS Business Administration, Class of 2023</span>
+                    <span class="author-program"
+                      >BS Business Administration, Class of 2023</span
+                    >
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          
-          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+
+          <div
+            class="col-lg-4 col-md-6 mb-4"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
             <div class="testimonial-card">
               <div class="testimonial-content">
                 <div class="testimonial-rating mb-3">
@@ -425,10 +530,12 @@
                   <i class="bi bi-star-fill text-warning"></i>
                 </div>
                 <p class="testimonial-text">
-                  "Mga pre, yung campus life dito sa ISCP, sobrang lit! May meme library kami, may wojak meditation 
-                  room pa! Yung canteen namin, hindi lang puro adobo - may 'Chad Protein Bowl' at 'Karen Complaints 
-                  Corner' din! Dito ko na-realize na college is not just about studying, it's about becoming a legend! 
-                  ISCP = I'm So Cool, Pre! 😎🎉"
+                  "Mga pre, yung campus life dito sa ISCP, sobrang lit! May meme
+                  library kami, may wojak meditation room pa! Yung canteen
+                  namin, hindi lang puro adobo - may 'Chad Protein Bowl' at
+                  'Karen Complaints Corner' din! Dito ko na-realize na college
+                  is not just about studying, it's about becoming a legend! ISCP
+                  = I'm So Cool, Pre! 😎🎉"
                 </p>
                 <div class="testimonial-author">
                   <div class="author-avatar">
@@ -436,14 +543,20 @@
                   </div>
                   <div class="author-info">
                     <h6 class="author-name">Pedro "Wojak" Martinez</h6>
-                    <span class="author-program">BS Psychology, Class of 2025</span>
+                    <span class="author-program"
+                      >BS Psychology, Class of 2025</span
+                    >
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          
-          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="500">
+
+          <div
+            class="col-lg-4 col-md-6 mb-4"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
             <div class="testimonial-card">
               <div class="testimonial-content">
                 <div class="testimonial-rating mb-3">
@@ -454,10 +567,12 @@
                   <i class="bi bi-star-fill text-warning"></i>
                 </div>
                 <p class="testimonial-text">
-                  "Sis, yung dorm life dito sa ISCP, grabe! May 'Anonymous Anonymous' room kami, may 'Boomer vs Zoomer' 
-                  debate corner pa! Yung roommate ko from Low Orbit Campus, sobrang high maintenance pero super fun! 
-                  Natuto ako na hindi lang puro 'sleep is for the weak' dapat, may 'sleep is for the chad' din! 
-                  ISCP dorm = I'm So Cool, Pre dorm! 🏠✨"
+                  "Sis, yung dorm life dito sa ISCP, grabe! May 'Anonymous
+                  Anonymous' room kami, may 'Boomer vs Zoomer' debate corner pa!
+                  Yung roommate ko from Low Orbit Campus, sobrang high
+                  maintenance pero super fun! Natuto ako na hindi lang puro
+                  'sleep is for the weak' dapat, may 'sleep is for the chad'
+                  din! ISCP dorm = I'm So Cool, Pre dorm! 🏠✨"
                 </p>
                 <div class="testimonial-author">
                   <div class="author-avatar">
@@ -465,14 +580,20 @@
                   </div>
                   <div class="author-info">
                     <h6 class="author-name">Ana "Anonymous" Santos</h6>
-                    <span class="author-program">BS Information Technology, Class of 2024</span>
+                    <span class="author-program"
+                      >BS Information Technology, Class of 2024</span
+                    >
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          
-          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="600">
+
+          <div
+            class="col-lg-4 col-md-6 mb-4"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
             <div class="testimonial-card">
               <div class="testimonial-content">
                 <div class="testimonial-rating mb-3">
@@ -483,10 +604,12 @@
                   <i class="bi bi-star-fill text-warning"></i>
                 </div>
                 <p class="testimonial-text">
-                  "Mga ka-boomer, yung traditional values dito sa ISCP, sobrang solid! May 'Uphill Both Ways' 
-                  hiking trail kami, may 'Back in My Day' museum pa! Yung professors namin, hindi lang puro 
-                  modern tech - may 'Traditional Meme Delivery Methods' din! Dito ko na-realize na education 
-                  is not just about gadgets, it's about walking uphill both ways! 🚶‍♂️⛰️"
+                  "Mga ka-boomer, yung traditional values dito sa ISCP, sobrang
+                  solid! May 'Uphill Both Ways' hiking trail kami, may 'Back in
+                  My Day' museum pa! Yung professors namin, hindi lang puro
+                  modern tech - may 'Traditional Meme Delivery Methods' din!
+                  Dito ko na-realize na education is not just about gadgets,
+                  it's about walking uphill both ways! 🚶‍♂️⛰️"
                 </p>
                 <div class="testimonial-author">
                   <div class="author-avatar">
@@ -494,7 +617,9 @@
                   </div>
                   <div class="author-info">
                     <h6 class="author-name">Roberto "Boomer" Garcia</h6>
-                    <span class="author-program">BS Education, Class of 2026</span>
+                    <span class="author-program"
+                      >BS Education, Class of 2026</span
+                    >
                   </div>
                 </div>
               </div>
@@ -504,20 +629,24 @@
       </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer bg-dark text-white py-5 mt-5">
       <div class="container">
         <div class="row">
-          <!-- ISCP Information -->
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="footer-section">
               <h5 class="footer-title mb-3">
-                <img src="/images/Seal.png" alt="ISCP Logo" height="40" class="me-2">
+                <img
+                  src="/images/Seal.png"
+                  alt="ISCP Logo"
+                  height="40"
+                  class="me-2"
+                />
                 International State College of the Philippines
               </h5>
               <p class="footer-description">
-                Building the future through innovation, technology, and academic excellence. 
-                Join our diverse community of learners and become part of something extraordinary.
+                Building the future through innovation, technology, and academic
+                excellence. Join our diverse community of learners and become
+                part of something extraordinary.
               </p>
               <div class="social-links">
                 <a href="#" class="social-link me-3" title="Facebook">
@@ -539,37 +668,58 @@
             </div>
           </div>
 
-          <!-- Quick Links -->
           <div class="col-lg-2 col-md-6 mb-4">
             <div class="footer-section">
               <h6 class="footer-subtitle mb-3">Quick Links</h6>
               <ul class="footer-links list-unstyled">
-                <li class="mb-2"><a href="index.html" class="footer-link">Home</a></li>
-                <li class="mb-2"><a href="about.html" class="footer-link">About Us</a></li>
-                <li class="mb-2"><a href="campuses.html" class="footer-link">Campuses</a></li>
-                <li class="mb-2"><a href="register.html" class="footer-link">Apply Now</a></li>
-                <li class="mb-2"><a href="#" class="footer-link">Student Portal</a></li>
-                <li class="mb-2"><a href="#" class="footer-link">Library</a></li>
+                <li class="mb-2">
+                  <a href="index.html" class="footer-link">Home</a>
+                </li>
+                <li class="mb-2">
+                  <a href="about.html" class="footer-link">About Us</a>
+                </li>
+                <li class="mb-2">
+                  <a href="campuses.html" class="footer-link">Campuses</a>
+                </li>
+                <li class="mb-2">
+                  <a href="register.html" class="footer-link">Apply Now</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="footer-link">Student Portal</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="footer-link">Library</a>
+                </li>
               </ul>
             </div>
           </div>
 
-          <!-- Academic Programs -->
           <div class="col-lg-3 col-md-6 mb-4">
             <div class="footer-section">
               <h6 class="footer-subtitle mb-3">Academic Programs</h6>
               <ul class="footer-links list-unstyled">
-                <li class="mb-2"><a href="#" class="footer-link">Information Technology</a></li>
-                <li class="mb-2"><a href="#" class="footer-link">Computer Science</a></li>
-                <li class="mb-2"><a href="#" class="footer-link">Business Administration</a></li>
-                <li class="mb-2"><a href="#" class="footer-link">Education</a></li>
-                <li class="mb-2"><a href="#" class="footer-link">Health Sciences</a></li>
-                <li class="mb-2"><a href="#" class="footer-link">Engineering</a></li>
+                <li class="mb-2">
+                  <a href="#" class="footer-link">Information Technology</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="footer-link">Computer Science</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="footer-link">Business Administration</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="footer-link">Education</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="footer-link">Health Sciences</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="footer-link">Engineering</a>
+                </li>
               </ul>
             </div>
           </div>
 
-          <!-- Contact Information -->
           <div class="col-lg-3 col-md-6 mb-4">
             <div class="footer-section">
               <h6 class="footer-subtitle mb-3">Contact Us</h6>
@@ -595,27 +745,37 @@
           </div>
         </div>
 
-        <!-- Newsletter Subscription -->
         <div class="row mt-4">
           <div class="col-12">
             <div class="newsletter-section text-center">
               <h6 class="footer-subtitle mb-3">Stay Updated</h6>
-              <p class="mb-3">Subscribe to our newsletter for the latest news and updates</p>
+              <p class="mb-3">
+                Subscribe to our newsletter for the latest news and updates
+              </p>
               <div class="newsletter-form d-flex justify-content-center">
-                <input type="email" class="form-control me-2" placeholder="Enter your email" style="max-width: 300px;">
+                <input
+                  type="email"
+                  class="form-control me-2"
+                  placeholder="Enter your email"
+                  style="max-width: 300px"
+                />
                 <button class="btn btn-primary">Subscribe</button>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Bottom Footer -->
         <div class="row mt-4">
           <div class="col-12">
-            <hr class="footer-divider">
-            <div class="bottom-footer d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <hr class="footer-divider" />
+            <div
+              class="bottom-footer d-flex flex-column flex-md-row justify-content-between align-items-center"
+            >
               <div class="copyright mb-2 mb-md-0">
-                <p class="mb-0">&copy; 2024 International State College of the Philippines. All rights reserved.</p>
+                <p class="mb-0">
+                  &copy; 2024 International State College of the Philippines.
+                  All rights reserved.
+                </p>
               </div>
               <div class="footer-bottom-links">
                 <a href="#" class="footer-link me-3">Privacy Policy</a>
@@ -628,12 +788,10 @@
       </div>
     </footer>
 
-    <!-- Scroll to Top Button -->
     <a href="#" class="scroll-to-top" id="scrollToTop" title="Scroll to top">
       <i class="bi bi-arrow-up"></i>
     </a>
 
-    <!-- Background Music Player -->
     <div class="music-player" id="musicPlayer">
       <div class="music-controls">
         <button class="music-btn" id="musicToggle" title="Play/Pause Music">
@@ -643,72 +801,97 @@
           <span class="music-title">ISCP Ambience</span>
           <div class="volume-control">
             <i class="bi bi-volume-up" id="volumeIcon"></i>
-            <input type="range" id="volumeSlider" min="0" max="100" value="25" class="volume-slider">
+            <input
+              type="range"
+              id="volumeSlider"
+              min="0"
+              max="100"
+              value="25"
+              class="volume-slider"
+            />
           </div>
-
         </div>
       </div>
       <audio id="backgroundMusic" loop preload="auto" crossorigin="anonymous">
-        <source src="audio/ISCPHymnn.mp3" type="audio/mpeg">
-        <source src="audio/ISCPHymnn.mp3" type="audio/mp3">
+        <source src="audio/ISCPHymnn.mp3" type="audio/mpeg" />
+        <source src="audio/ISCPHymnn.mp3" type="audio/mp3" />
         Your browser does not support the audio element.
       </audio>
     </div>
 
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div
+      class="modal fade"
+      id="loginModal"
+      tabindex="-1"
+      aria-labelledby="loginModalLabel"
+      aria-hidden="true"
+    >
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="loginModalLabel">Student Portal Login</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h5 class="modal-title" id="loginModalLabel">
+              Student Portal Login
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
           <div class="modal-body">
             <form class="login-form">
               <div class="mb-3">
                 <label for="studentId" class="form-label">Student ID</label>
-                <input 
-                  type="text" 
-                  class="form-control" 
-                  id="studentId" 
+                <input
+                  type="text"
+                  class="form-control"
+                  id="studentId"
                   placeholder="Enter your Student ID"
                   required
-                >
+                />
               </div>
-              
+
               <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input 
-                  type="password" 
-                  class="form-control" 
-                  id="password" 
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
                   placeholder="Enter your password"
                   required
-                >
+                />
               </div>
-              
+
               <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="rememberMe">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="rememberMe"
+                />
                 <label class="form-check-label" for="rememberMe">
                   Remember me
                 </label>
               </div>
-              
+
               <button type="submit" class="btn btn-primary w-100 mb-3">
                 Sign In
               </button>
-              
+
               <div class="text-center">
                 <a href="#" class="forgot-password">Forgot Password?</a>
               </div>
             </form>
-            
+
             <div class="divider my-4">
               <span>or</span>
             </div>
-            
+
             <div class="text-center">
               <p class="mb-2">New student?</p>
-              <a href="register.html" class="btn btn-outline-primary">Create Account</a>
+              <a href="register.html" class="btn btn-outline-primary"
+                >Create Account</a
+              >
             </div>
           </div>
         </div>
@@ -717,15 +900,13 @@
 
     <script src="/js/bootstrap.bundle.js"></script>
     <script src="/js/custom.js"></script>
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      // Initialize AOS
       AOS.init({
         duration: 800,
-        easing: 'ease-in-out',
-        once: true
+        easing: "ease-in-out",
+        once: true,
       });
     </script>
   </body>

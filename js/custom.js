@@ -6,21 +6,20 @@ function initializePreloader() {
   
   if (!preloader) return;
   
-  // Add preloading class to body
   document.body.classList.add('preloading');
   
   let progress = 0;
   const targetProgress = 100;
-  const increment = 1;
+  const increment = 0.8;
   const progressInterval = setInterval(() => {
     progress += increment;
     
     if (progressFill) {
-      progressFill.style.width = `${progress}%`;
+      progressFill.style.width = `${Math.min(progress, 100)}%`;
     }
     
     if (progressText) {
-      progressText.textContent = `${Math.min(progress, 100)}%`;
+      progressText.textContent = `${Math.min(Math.round(progress), 100)}%`;
     }
     
     if (progress >= targetProgress) {
@@ -32,12 +31,11 @@ function initializePreloader() {
         setTimeout(() => {
           preloader.remove();
           document.body.classList.remove('preloading');
-          
           triggerContentAnimations();
-        }, 1000);
-      }, 800);
+        }, 800);
+      }, 600);
     }
-  }, 80);
+  }, 60);
 }
 
 function triggerContentAnimations() {
@@ -142,7 +140,7 @@ function hidePreloader() {
       preloader.remove();
       document.body.classList.remove('preloading');
       triggerContentAnimations();
-    }, 1000);
+    }, 800);
   }
 }
 
