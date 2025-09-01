@@ -27,26 +27,49 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav ms-auto">
-              <a class="nav-link" href="index.html">
-                <i class="bi bi-house-door"></i> Home
-              </a>
-              <a class="nav-link" href="about.html">
-                <i class="bi bi-info-circle"></i> About
-              </a>
-              <a class="nav-link active" href="campuses.html">
-                <i class="bi bi-graduation-cap"></i> Campuses
-              </a>
-              <a class="nav-link" href="research.html">
-                <i class="bi bi-flask"></i> Research
-              </a>
-              <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
-                <i class="bi bi-box-arrow-in-right"></i> Login
-              </a>
-            </div>
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                  <i class="bi bi-house-door"></i> Home
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">
+                  <i class="bi bi-info-circle"></i> About
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="academics.html">
+                  <i class="bi bi-graduation-cap"></i> Academics
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="campuses.html">
+                  <i class="bi bi-building"></i> Campuses
+                </a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="research.html">
+                  <i class="bi bi-flask"></i> Research
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">
+                  <i class="bi bi-envelope"></i> Contact
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
+                  <i class="bi bi-person-circle"></i> Login
+                </a>
+              </li>
+            </ul>
             <form class="d-flex ms-3">
               <div class="input-group">
-                <input class="form-control" type="search" placeholder="Search ISCP..." aria-label="Search" id="searchInput">
+                <input class="form-control" type="search" placeholder="Search..." aria-label="Search" id="searchInput">
                 <button class="btn btn-outline-light" type="submit">
                   <i class="bi bi-search"></i>
                 </button>
@@ -1460,59 +1483,161 @@
     </div>
 
     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="loginModalLabel">Student Portal Login</h5>
+            <h5 class="modal-title" id="loginModalLabel">Student Portal</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form class="login-form">
-              <div class="mb-3">
-                <label for="studentId" class="form-label">Student ID</label>
-                <input 
-                  type="text" 
-                  class="form-control" 
-                  id="studentId" 
-                  placeholder="Enter your Student ID"
-                  required
-                >
+            <!-- Tab Navigation -->
+            <ul class="nav nav-tabs mb-4" id="authTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login-tab-pane" type="button" role="tab" aria-controls="login-tab-pane" aria-selected="true">
+                  <i class="bi bi-person-circle me-2"></i>Login
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register-tab-pane" type="button" role="tab" aria-controls="register-tab-pane" aria-selected="false">
+                  <i class="bi bi-person-plus me-2"></i>Register
+                </button>
+              </li>
+            </ul>
+
+            <!-- Tab Content -->
+            <div class="tab-content" id="authTabsContent">
+              <!-- Login Tab -->
+              <div class="tab-pane fade show active" id="login-tab-pane" role="tabpanel" aria-labelledby="login-tab" tabindex="0">
+                <form class="login-form">
+                  <div class="mb-3">
+                    <label for="studentId" class="form-label">Student ID</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="studentId"
+                      placeholder="Enter your Student ID"
+                      required
+                    />
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="password"
+                      placeholder="Enter your password"
+                      required
+                    />
+                  </div>
+
+                  <div class="mb-3 form-check">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      id="rememberMe"
+                    />
+                    <label class="form-check-label" for="rememberMe">
+                      Remember me
+                    </label>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary w-100 mb-3">
+                    Sign In
+                  </button>
+
+                  <div class="text-center">
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                  </div>
+                </form>
               </div>
-              
-              <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input 
-                  type="password" 
-                  class="form-control" 
-                  id="password" 
-                  placeholder="Enter your password"
-                  required
-                >
+
+              <!-- Register Tab -->
+              <div class="tab-pane fade" id="register-tab-pane" role="tabpanel" aria-labelledby="register-tab" tabindex="0">
+                <form class="registration-form" id="modalRegistrationForm">
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="modalFirstName" class="form-label">First Name</label>
+                      <input type="text" class="form-control" id="modalFirstName" name="firstName" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="modalLastName" class="form-label">Last Name</label>
+                      <input type="text" class="form-control" id="modalLastName" name="lastName" required>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="modalStudentId" class="form-label">Student ID</label>
+                      <input type="text" class="form-control" id="modalStudentId" name="studentId" placeholder="e.g., 2024-0001" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="modalEmail" class="form-label">Email Address</label>
+                      <input type="email" class="form-control" id="modalEmail" name="email" required>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="modalPhone" class="form-label">Phone Number</label>
+                      <input type="tel" class="form-control" id="modalPhone" name="phone" placeholder="+63 9XX XXX XXXX" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="modalBirthDate" class="form-label">Birth Date</label>
+                      <input type="date" class="form-control" id="modalBirthDate" name="birthDate" required>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="modalCollege" class="form-label">College</label>
+                      <select class="form-select" id="modalCollege" name="college" required>
+                        <option value="">Select College</option>
+                        <option value="engineering">College of Engineering</option>
+                        <option value="it">College of Information Technology</option>
+                        <option value="business">College of Business</option>
+                        <option value="education">College of Education</option>
+                        <option value="arts">College of Arts and Sciences</option>
+                        <option value="health">College of Health Sciences</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="modalProgram" class="form-label">Program</label>
+                      <select class="form-select" id="modalProgram" name="program" required>
+                        <option value="">Select Program</option>
+                        <option value="" disabled>Please select a college first</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="modalUsername" class="form-label">Username</label>
+                      <input type="text" class="form-control" id="modalUsername" name="username" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="modalPassword" class="form-label">Password</label>
+                      <input type="password" class="form-control" id="modalPassword" name="password" required>
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="modalConfirmPassword" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" id="modalConfirmPassword" name="confirmPassword" required>
+                  </div>
+
+                  <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="modalTerms" name="terms" required>
+                    <label class="form-check-label" for="modalTerms">
+                      I agree to the <a href="#" class="text-primary">Terms and Conditions</a>
+                    </label>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary w-100">
+                    Create Account
+                  </button>
+                </form>
               </div>
-              
-              <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="rememberMe">
-                <label class="form-check-label" for="rememberMe">
-                  Remember me
-                </label>
-              </div>
-              
-              <button type="submit" class="btn btn-primary w-100 mb-3">
-                Sign In
-              </button>
-              
-              <div class="text-center">
-                <a href="#" class="forgot-password">Forgot Password?</a>
-              </div>
-            </form>
-            
-            <div class="divider my-4">
-              <span>or</span>
-            </div>
-            
-            <div class="text-center">
-              <p class="mb-2">New student?</p>
-              <a href="register.html" class="btn btn-outline-primary">Create Account</a>
             </div>
           </div>
         </div>
