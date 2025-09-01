@@ -610,3 +610,156 @@ function initializeCollapsibleMusicPlayer() {
   
   resetCollapseTimer();
 }
+
+// Search functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('searchInput');
+  const searchForm = searchInput?.closest('form');
+  
+  if (searchForm) {
+    searchForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      performSearch(searchInput.value);
+    });
+    
+    // Real-time search as user types
+    searchInput.addEventListener('input', function() {
+      if (this.value.length > 2) {
+        performSearch(this.value);
+      } else {
+        showAllContent();
+      }
+    });
+  }
+});
+
+function performSearch(query) {
+  if (!query.trim()) {
+    showAllContent();
+    return;
+  }
+  
+  const searchTerm = query.toLowerCase();
+  const collegeCards = document.querySelectorAll('.college-card');
+  const testimonialCards = document.querySelectorAll('.testimonial-card');
+  const aboutSection = document.querySelector('.about-section');
+  const statsGrid = document.querySelector('.stats-grid');
+  
+  let hasResults = false;
+  
+  // Search through college cards
+  collegeCards.forEach(card => {
+    const title = card.querySelector('.college-title')?.textContent.toLowerCase() || '';
+    const description = card.querySelector('.college-description')?.textContent.toLowerCase() || '';
+    const options = Array.from(card.querySelectorAll('option')).map(opt => opt.textContent.toLowerCase());
+    
+    if (title.includes(searchTerm) || description.includes(searchTerm) || 
+        options.some(opt => opt.includes(searchTerm))) {
+      card.style.display = 'block';
+      card.style.opacity = '1';
+      hasResults = true;
+    } else {
+      card.style.opacity = '0.3';
+    }
+  });
+  
+  // Search through testimonials
+  testimonialCards.forEach(card => {
+    const text = card.querySelector('.testimonial-text')?.textContent.toLowerCase() || '';
+    const author = card.querySelector('.author-name')?.textContent.toLowerCase() || '';
+    const program = card.querySelector('.author-program')?.textContent.toLowerCase() || '';
+    
+    if (text.includes(searchTerm) || author.includes(searchTerm) || program.includes(searchTerm)) {
+      card.style.display = 'block';
+      card.style.opacity = '1';
+      hasResults = true;
+    } else {
+      card.style.opacity = '0.3';
+    }
+  });
+  
+  // Search through about section
+  if (aboutSection) {
+    const aboutTitle = aboutSection.querySelector('.about-title')?.textContent.toLowerCase() || '';
+    const aboutDescription = aboutSection.querySelector('.about-description')?.textContent.toLowerCase() || '';
+    
+    if (aboutTitle.includes(searchTerm) || aboutDescription.includes(searchTerm)) {
+      aboutSection.style.opacity = '1';
+      hasResults = true;
+    } else {
+      aboutSection.style.opacity = '0.3';
+    }
+  }
+  
+  // Search through stats
+  if (statsGrid) {
+    const statCards = statsGrid.querySelectorAll('.stat-card');
+    statCards.forEach(card => {
+      const number = card.querySelector('.stat-number')?.textContent.toLowerCase() || '';
+      const description = card.querySelector('.stat-description')?.textContent.toLowerCase() || '';
+      
+      if (number.includes(searchTerm) || description.includes(searchTerm)) {
+        card.style.opacity = '1';
+        hasResults = true;
+      } else {
+        card.style.opacity = '0.3';
+      }
+    });
+  }
+  
+  // Show search results message
+  showSearchResults(query, hasResults);
+}
+
+function showSearchResults(query, hasResults) {
+  // Remove existing search results message
+  const existingMessage = document.querySelector('.search-results-message');
+  if (existingMessage) {
+    existingMessage.remove();
+  }
+  
+  const searchForm = document.querySelector('.d-flex.ms-3');
+  if (searchForm) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'search-results-message mt-2';
+    messageDiv.innerHTML = `
+      <small class="text-white">
+        ${hasResults ? `Found results for "${query}"` : `No results found for "${query}"`}
+        ${hasResults ? '' : ' - Showing all content'}
+      </small>
+    `;
+    searchForm.appendChild(messageDiv);
+    
+    // Auto-remove message after 3 seconds
+    setTimeout(() => {
+      if (messageDiv.parentNode) {
+        messageDiv.remove();
+      }
+    }, 3000);
+  }
+}
+
+function showAllContent() {
+  const allCards = document.querySelectorAll('.college-card, .testimonial-card');
+  const aboutSection = document.querySelector('.about-section');
+  const statCards = document.querySelectorAll('.stat-card');
+  
+  allCards.forEach(card => {
+    card.style.display = 'block';
+    card.style.opacity = '1';
+  });
+  
+  if (aboutSection) {
+    aboutSection.style.opacity = '1';
+  }
+  
+  statCards.forEach(card => {
+    card.style.opacity = '1';
+  });
+  
+  // Remove search results message
+  const existingMessage = document.querySelector('.search-results-message');
+  if (existingMessage) {
+    existingMessage.remove();
+  }
+}
