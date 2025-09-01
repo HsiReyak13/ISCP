@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Research - International State College of the Philippines</title>
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+  </head>
+  <body class="research-page">
+    <div class="bg-main">
+      <nav class="navbar navbar-expand-lg navbar-dark px-5">
+        <div class="container-fluid">
+          <a href="index.html" class="navbar-brand">
+            <img src="/images/Seal.png" alt="ISCP Logo" height="50" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ms-auto">
+              <a class="nav-link" href="index.html">
+                <i class="bi bi-house-door"></i> Home
+              </a>
+              <a class="nav-link" href="about.html">
+                <i class="bi bi-info-circle"></i> About
+              </a>
+              <a class="nav-link" href="campuses.html">
+                <i class="bi bi-graduation-cap"></i> Campuses
+              </a>
+              <a class="nav-link active" href="research.html">
+                <i class="bi bi-flask"></i> Research
+              </a>
+              <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
+                <i class="bi bi-box-arrow-in-right"></i> Login
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+      <div class="container-fluid">
+        <div class="navbar-nav mx-auto">
+          <a class="nav-link active" href="#research-areas">
+            <div class="text-center">
+              <i class="bi bi-lightbulb display-6 d-block"></i>
+              <span>Research Areas</span>
+            </div>
+          </a>
+          <a class="nav-link" href="#publications">
+            <div class="text-center">
+              <i class="bi bi-journal-text display-6 d-block"></i>
+              <span>Publications</span>
+            </div>
+          </a>
+          <a class="nav-link" href="#research-centers">
+            <div class="text-center">
+              <i class="bi bi-building display-6 d-block"></i>
+              <span>Research Centers</span>
+            </div>
+          </a>
+          <a class="nav-link" href="#grants">
+            <div class="text-center">
+              <i class="bi bi-cash-coin display-6 d-block"></i>
+              <span>Grants & Funding</span>
+            </div>
+          </a>
+          <a class="nav-link" href="#collaborations">
+            <div class="text-center">
+              <i class="bi bi-people display-6 d-block"></i>
+              <span>Collaborations</span>
+            </div>
+          </a>
+          <a class="nav-link" href="#opportunities">
+            <div class="text-center">
+              <i class="bi bi-briefcase display-6 d-block"></i>
+              <span>Opportunities</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Research Areas Section -->
+    <section id="research-areas" class="py-5">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">Research Areas</h2>
+          <p class="section-subtitle">Exploring frontiers of knowledge across diverse disciplines</p>
+        </div>
+        
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="research-card">
+              <div class="research-icon">
+                <i class="bi bi-cpu"></i>
+              </div>
+              <h3>Technology & Innovation</h3>
+              <p>Advancing cutting-edge technologies in artificial intelligence, robotics, and sustainable computing solutions.</p>
+              <div class="research-tags">
+                <span class="tag">AI/ML</span>
+                <span class="tag">Robotics</span>
+                <span class="tag">IoT</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-4 col-md-6">
+            <div class="research-card">
+              <div class="research-icon">
+                <i class="bi bi-leaf"></i>
+              </div>
+              <h3>Environmental Science</h3>
+              <p>Researching climate change mitigation, renewable energy, and sustainable environmental practices.</p>
+              <div class="research-tags">
+                <span class="tag">Climate</span>
+                <span class="tag">Renewable Energy</span>
+                <span class="tag">Sustainability</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-4 col-md-6">
+            <div class="research-card">
+              <div class="research-icon">
+                <i class="bi bi-heart-pulse"></i>
+              </div>
+              <h3>Health Sciences</h3>
+              <p>Advancing medical research, public health initiatives, and innovative healthcare solutions.</p>
+              <div class="research-tags">
+                <span class="tag">Medicine</span>
+                <span class="tag">Public Health</span>
+                <span class="tag">Biotechnology</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-4 col-md-6">
+            <div class="research-card">
+              <div class="research-icon">
+                <i class="bi bi-globe"></i>
+              </div>
+              <h3>Social Sciences</h3>
+              <p>Exploring human behavior, societal structures, and cultural dynamics in a global context.</p>
+              <div class="research-tags">
+                <span class="tag">Psychology</span>
+                <span class="tag">Sociology</span>
+                <span class="tag">Economics</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-4 col-md-6">
+            <div class="research-card">
+              <div class="research-icon">
+                <i class="bi bi-atom"></i>
+              </div>
+              <h3>Physical Sciences</h3>
+              <p>Investigating fundamental principles of physics, chemistry, and materials science.</p>
+              <div class="research-tags">
+                <span class="tag">Physics</span>
+                <span class="tag">Chemistry</span>
+                <span class="tag">Materials</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-4 col-md-6">
+            <div class="research-card">
+              <div class="research-icon">
+                <i class="bi bi-graph-up"></i>
+              </div>
+              <h3>Business & Economics</h3>
+              <p>Analyzing market trends, economic policies, and innovative business strategies.</p>
+              <div class="research-tags">
+                <span class="tag">Finance</span>
+                <span class="tag">Marketing</span>
+                <span class="tag">Strategy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="py-5 bg-light">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">Recent Publications</h2>
+          <p class="section-subtitle">Contributing to global knowledge through impactful research</p>
+        </div>
+        
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="publication-card">
+              <div class="publication-header">
+                <h4>"Quantum Computing Applications in Climate Modeling"</h4>
+                <span class="publication-year">2024</span>
+              </div>
+              <p class="publication-authors">Dr. Maria Santos, Dr. James Chen, Dr. Elena Rodriguez</p>
+              <p class="publication-journal">Nature Computational Science</p>
+              <p class="publication-abstract">This groundbreaking research explores how quantum computing can revolutionize climate prediction models, offering unprecedented accuracy in forecasting environmental changes.</p>
+              <div class="publication-metrics">
+                <span class="metric"><i class="bi bi-eye"></i> 2,847 views</span>
+                <span class="metric"><i class="bi bi-download"></i> 156 downloads</span>
+                <span class="metric"><i class="bi bi-quote"></i> 23 citations</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-6">
+            <div class="publication-card">
+              <div class="publication-header">
+                <h4>"Sustainable Urban Development in Southeast Asia"</h4>
+                <span class="publication-year">2024</span>
+              </div>
+              <p class="publication-authors">Dr. Ahmed Hassan, Dr. Li Wei, Dr. Sofia Martinez</p>
+              <p class="publication-journal">Urban Studies Quarterly</p>
+              <p class="publication-abstract">A comprehensive analysis of sustainable development practices across major Southeast Asian cities, providing actionable insights for urban planners and policymakers.</p>
+              <div class="publication-metrics">
+                <span class="metric"><i class="bi bi-eye"></i> 1,923 views</span>
+                <span class="metric"><i class="bi bi-download"></i> 89 downloads</span>
+                <span class="metric"><i class="bi bi-quote"></i> 17 citations</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-6">
+            <div class="publication-card">
+              <div class="publication-header">
+                <h4>"AI-Driven Healthcare Diagnostics"</h4>
+                <span class="publication-year">2023</span>
+              </div>
+              <p class="publication-authors">Dr. Sarah Johnson, Dr. Carlos Mendez, Dr. Priya Patel</p>
+              <p class="publication-journal">Journal of Medical AI</p>
+              <p class="publication-abstract">Innovative artificial intelligence algorithms for early disease detection, demonstrating improved accuracy and reduced diagnosis time in clinical settings.</p>
+              <div class="publication-metrics">
+                <span class="metric"><i class="bi bi-eye"></i> 3,156 views</span>
+                <span class="metric"><i class="bi bi-download"></i> 234 downloads</span>
+                <span class="metric"><i class="bi bi-quote"></i> 45 citations</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-6">
+            <div class="publication-card">
+              <div class="publication-header">
+                <h4>"Renewable Energy Integration Strategies"</h4>
+                <span class="publication-year">2023</span>
+              </div>
+              <p class="publication-authors">Dr. Robert Kim, Dr. Ana Silva, Dr. David Thompson</p>
+              <p class="publication-journal">Energy Policy Review</p>
+              <p class="publication-abstract">Comprehensive strategies for integrating renewable energy sources into existing power grids, addressing technical challenges and economic considerations.</p>
+              <div class="publication-metrics">
+                <span class="metric"><i class="bi bi-eye"></i> 2,445 views</span>
+                <span class="metric"><i class="bi bi-download"></i> 178 downloads</span>
+                <span class="metric"><i class="bi bi-quote"></i> 31 citations</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center mt-5">
+          <a href="#" class="btn btn-primary btn-lg">View All Publications</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research Centers Section -->
+    <section id="research-centers" class="py-5">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">Research Centers</h2>
+          <p class="section-subtitle">Specialized facilities driving innovation and discovery</p>
+        </div>
+        
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="center-card">
+              <div class="center-image">
+                <i class="bi bi-cpu-fill"></i>
+              </div>
+              <div class="center-content">
+                <h3>Center for Advanced Technology</h3>
+                <p>Leading research in artificial intelligence, robotics, and emerging technologies. Home to state-of-the-art computing facilities and collaborative spaces.</p>
+                <div class="center-stats">
+                  <div class="stat">
+                    <span class="stat-number">15</span>
+                    <span class="stat-label">Active Projects</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-number">8</span>
+                    <span class="stat-label">Research Labs</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-number">45</span>
+                    <span class="stat-label">Researchers</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-6">
+            <div class="center-card">
+              <div class="center-image">
+                <i class="bi bi-leaf-fill"></i>
+              </div>
+              <div class="center-content">
+                <h3>Environmental Research Institute</h3>
+                <p>Dedicated to studying climate change, biodiversity, and sustainable development. Features advanced environmental monitoring equipment and field research facilities.</p>
+                <div class="center-stats">
+                  <div class="stat">
+                    <span class="stat-number">12</span>
+                    <span class="stat-label">Active Projects</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-number">6</span>
+                    <span class="stat-label">Research Labs</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-number">32</span>
+                    <span class="stat-label">Researchers</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-6">
+            <div class="center-card">
+              <div class="center-image">
+                <i class="bi bi-heart-pulse-fill"></i>
+              </div>
+              <div class="center-content">
+                <h3>Health Sciences Research Center</h3>
+                <p>Advancing medical research through innovative approaches to disease prevention, treatment, and healthcare delivery systems.</p>
+                <div class="center-stats">
+                  <div class="stat">
+                    <span class="stat-number">18</span>
+                    <span class="stat-label">Active Projects</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-number">10</span>
+                    <span class="stat-label">Research Labs</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-number">56</span>
+                    <span class="stat-label">Researchers</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-6">
+            <div class="center-card">
+              <div class="center-image">
+                <i class="bi bi-graph-up-arrow"></i>
+              </div>
+              <div class="center-content">
+                <h3>Business Innovation Lab</h3>
+                <p>Fostering entrepreneurship and business innovation through research on market trends, economic policies, and sustainable business models.</p>
+                <div class="center-stats">
+                  <div class="stat">
+                    <span class="stat-number">9</span>
+                    <span class="stat-label">Active Projects</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">Research Labs</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-number">28</span>
+                    <span class="stat-label">Researchers</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Grants & Funding Section -->
+    <section id="grants" class="py-5 bg-light">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">Grants & Funding</h2>
+          <p class="section-subtitle">Supporting research excellence through various funding opportunities</p>
+        </div>
+        
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="grant-card">
+              <div class="grant-header">
+                <h4>Internal Research Grants</h4>
+                <span class="grant-amount">₱500K - ₱2M</span>
+              </div>
+              <p>University-funded research projects for faculty and students across all disciplines.</p>
+              <ul class="grant-details">
+                <li>Open to all faculty members</li>
+                <li>12-month project duration</li>
+                <li>Equipment and travel support</li>
+              </ul>
+              <a href="#" class="btn btn-outline-primary">Apply Now</a>
+            </div>
+          </div>
+          
+          <div class="col-lg-4 col-md-6">
+            <div class="grant-card">
+              <div class="grant-header">
+                <h4>International Collaboration Grants</h4>
+                <span class="grant-amount">₱1M - ₱5M</span>
+              </div>
+              <p>Funding for collaborative research projects with international partners and institutions.</p>
+              <ul class="grant-details">
+                <li>Partnership with foreign universities</li>
+                <li>18-month project duration</li>
+                <li>International travel support</li>
+              </ul>
+              <a href="#" class="btn btn-outline-primary">Apply Now</a>
+            </div>
+          </div>
+          
+          <div class="col-lg-4 col-md-6">
+            <div class="grant-card">
+              <div class="grant-header">
+                <h4>Student Research Fellowships</h4>
+                <span class="grant-amount">₱100K - ₱500K</span>
+              </div>
+              <p>Research funding specifically designed for undergraduate and graduate students.</p>
+              <ul class="grant-details">
+                <li>Open to current students</li>
+                <li>6-12 month duration</li>
+                <li>Mentorship support</li>
+              </ul>
+              <a href="#" class="btn btn-outline-primary">Apply Now</a>
+            </div>
+          </div>
+          
+          <div class="col-lg-4 col-md-6">
+            <div class="grant-card">
+              <div class="grant-header">
+                <h4>Industry Partnership Grants</h4>
+                <span class="grant-amount">₱2M - ₱10M</span>
+              </div>
+              <p>Collaborative research projects with industry partners addressing real-world challenges.</p>
+              <ul class="grant-details">
+                <li>Industry collaboration required</li>
+                <li>24-month project duration</li>
+                <li>Commercialization support</li>
+              </ul>
+              <a href="#" class="btn btn-outline-primary">Apply Now</a>
+            </div>
+          </div>
+          
+          <div class="col-lg-4 col-md-6">
+            <div class="grant-card">
+              <div class="grant-header">
+                <h4>Emerging Scholars Program</h4>
+                <span class="grant-amount">₱300K - ₱1M</span>
+              </div>
+              <p>Support for early-career researchers and new faculty members.</p>
+              <ul class="grant-details">
+                <li>New faculty members only</li>
+                <li>12-month project duration</li>
+                <li>Professional development support</li>
+              </ul>
+              <a href="#" class="btn btn-outline-primary">Apply Now</a>
+            </div>
+          </div>
+          
+          <div class="col-lg-4 col-md-6">
+            <div class="grant-card">
+              <div class="grant-header">
+                <h4>Interdisciplinary Research Grants</h4>
+                <span class="grant-amount">₱1M - ₱3M</span>
+              </div>
+              <p>Funding for research projects that span multiple disciplines and departments.</p>
+              <ul class="grant-details">
+                <li>Multi-department collaboration</li>
+                <li>18-month project duration</li>
+                <li>Cross-disciplinary support</li>
+              </ul>
+              <a href="#" class="btn btn-outline-primary">Apply Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Collaborations Section -->
+    <section id="collaborations" class="py-5">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">Research Collaborations</h2>
+          <p class="section-subtitle">Building global partnerships for impactful research</p>
+        </div>
+        
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="collaboration-card">
+              <div class="collab-logo">
+                <i class="bi bi-building"></i>
+              </div>
+              <h4>MIT</h4>
+              <p>Massachusetts Institute of Technology</p>
+              <div class="collab-projects">
+                <span class="project-count">5 Active Projects</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-6">
+            <div class="collaboration-card">
+              <div class="collab-logo">
+                <i class="bi bi-building"></i>
+              </div>
+              <h4>Stanford University</h4>
+              <p>Stanford, California</p>
+              <div class="collab-projects">
+                <span class="project-count">3 Active Projects</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-6">
+            <div class="collaboration-card">
+              <div class="collab-logo">
+                <i class="bi bi-building"></i>
+              </div>
+              <h4>University of Tokyo</h4>
+              <p>Tokyo, Japan</p>
+              <div class="collab-projects">
+                <span class="project-count">4 Active Projects</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-6">
+            <div class="collaboration-card">
+              <div class="collab-logo">
+                <i class="bi bi-building"></i>
+              </div>
+              <h4>University of Cambridge</h4>
+              <p>Cambridge, UK</p>
+              <div class="collab-projects">
+                <span class="project-count">2 Active Projects</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-6">
+            <div class="collaboration-card">
+              <div class="collab-logo">
+                <i class="bi bi-building"></i>
+              </div>
+              <h4>National University of Singapore</h4>
+              <p>Singapore</p>
+              <div class="collab-projects">
+                <span class="project-count">6 Active Projects</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-6">
+            <div class="collaboration-card">
+              <div class="collab-logo">
+                <i class="bi bi-building"></i>
+              </div>
+              <h4>Seoul National University</h4>
+              <p>Seoul, South Korea</p>
+              <div class="collab-projects">
+                <span class="project-count">3 Active Projects</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-6">
+            <div class="collaboration-card">
+              <div class="collab-logo">
+                <i class="bi bi-building"></i>
+              </div>
+              <h4>University of Melbourne</h4>
+              <p>Melbourne, Australia</p>
+              <div class="collab-projects">
+                <span class="project-count">4 Active Projects</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-6">
+            <div class="collaboration-card">
+              <div class="collab-logo">
+                <i class="bi bi-building"></i>
+              </div>
+              <h4>Technical University of Munich</h4>
+              <p>Munich, Germany</p>
+              <div class="collab-projects">
+                <span class="project-count">2 Active Projects</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Opportunities Section -->
+    <section id="opportunities" class="py-5 bg-light">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">Research Opportunities</h2>
+          <p class="section-subtitle">Join our research community and make a difference</p>
+        </div>
+        
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="opportunity-card">
+              <div class="opportunity-header">
+                <h4>Graduate Research Assistantships</h4>
+                <span class="opportunity-type">Full-time</span>
+              </div>
+              <p>Join our research teams as a graduate research assistant and contribute to cutting-edge projects while pursuing your advanced degree.</p>
+              <div class="opportunity-details">
+                <div class="detail-item">
+                  <i class="bi bi-calendar"></i>
+                  <span>Application Deadline: March 15, 2025</span>
+                </div>
+                <div class="detail-item">
+                  <i class="bi bi-person"></i>
+                  <span>Open Positions: 12</span>
+                </div>
+                <div class="detail-item">
+                  <i class="bi bi-geo-alt"></i>
+                  <span>Multiple Campuses</span>
+                </div>
+              </div>
+              <a href="#" class="btn btn-primary">Apply Now</a>
+            </div>
+          </div>
+          
+          <div class="col-lg-6">
+            <div class="opportunity-card">
+              <div class="opportunity-header">
+                <h4>Postdoctoral Research Positions</h4>
+                <span class="opportunity-type">Full-time</span>
+              </div>
+              <p>Exciting postdoctoral opportunities in various research areas with competitive salaries and excellent research support.</p>
+              <div class="opportunity-details">
+                <div class="detail-item">
+                  <i class="bi bi-calendar"></i>
+                  <span>Application Deadline: Rolling</span>
+                </div>
+                <div class="detail-item">
+                  <i class="bi bi-person"></i>
+                  <span>Open Positions: 8</span>
+                </div>
+                <div class="detail-item">
+                  <i class="bi bi-geo-alt"></i>
+                  <span>Main Campus</span>
+                </div>
+              </div>
+              <a href="#" class="btn btn-primary">Apply Now</a>
+            </div>
+          </div>
+          
+          <div class="col-lg-6">
+            <div class="opportunity-card">
+              <div class="opportunity-header">
+                <h4>Summer Research Internships</h4>
+                <span class="opportunity-type">Part-time</span>
+              </div>
+              <p>Gain valuable research experience through our summer internship program designed for undergraduate students.</p>
+              <div class="opportunity-details">
+                <div class="detail-item">
+                  <i class="bi bi-calendar"></i>
+                  <span>Application Deadline: April 30, 2025</span>
+                </div>
+                <div class="detail-item">
+                  <i class="bi bi-person"></i>
+                  <span>Open Positions: 25</span>
+                </div>
+                <div class="detail-item">
+                  <i class="bi bi-geo-alt"></i>
+                  <span>All Campuses</span>
+                </div>
+              </div>
+              <a href="#" class="btn btn-primary">Apply Now</a>
+            </div>
+          </div>
+          
+          <div class="col-lg-6">
+            <div class="opportunity-card">
+              <div class="opportunity-header">
+                <h4>Faculty Research Positions</h4>
+                <span class="opportunity-type">Full-time</span>
+              </div>
+              <p>Join our faculty as a research-focused professor and lead innovative research projects in your area of expertise.</p>
+              <div class="opportunity-details">
+                <div class="detail-item">
+                  <i class="bi bi-calendar"></i>
+                  <span>Application Deadline: Rolling</span>
+                </div>
+                <div class="detail-item">
+                  <i class="bi bi-person"></i>
+                  <span>Open Positions: 15</span>
+                </div>
+                <div class="detail-item">
+                  <i class="bi bi-geo-alt"></i>
+                  <span>Multiple Campuses</span>
+                </div>
+              </div>
+              <a href="#" class="btn btn-primary">Apply Now</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center mt-5">
+          <a href="#" class="btn btn-outline-primary btn-lg">View All Opportunities</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <p>&copy; 2024 International State College of the Philippines. All rights reserved.</p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <p>Contact: research@iscp.edu.ph | Phone: +63 2 1234 5678</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="/js/bootstrap.bundle.js"></script>
+    <script src="/js/custom.js"></script>
+  </body>
+</html>
