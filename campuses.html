@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campuses - International State College of the Philippines</title>
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+  </head>
+  <body class="campuses-page">
+    <div class="bg-main">
+      <nav class="navbar navbar-expand-lg navbar-dark px-5">
+        <div class="container-fluid">
+          <a href="index.html" class="navbar-brand">
+            <img src="/images/Seal.png" alt="ISCP Logo" height="50" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ms-auto">
+              <a class="nav-link" href="index.html">
+                <i class="bi bi-house-door"></i> Home
+              </a>
+              <a class="nav-link" href="about.html">
+                <i class="bi bi-info-circle"></i> About
+              </a>
+              <a class="nav-link active" href="campuses.html">
+                <i class="bi bi-graduation-cap"></i> Campuses
+              </a>
+              <a class="nav-link" href="#">
+                <i class="bi bi-flask"></i> Research
+              </a>
+              <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
+                <i class="bi bi-box-arrow-in-right"></i> Login
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <main
+        class="container text-center text-white d-flex flex-column justify-content-center align-items-center vh-100"
+      >
+        <h1 class="display-4 fw-bold">
+          Our Campuses
+        </h1>
+        <p class="lead">
+          Discover our state-of-the-art facilities across multiple locations, designed to provide the best learning environment for our students.
+        </p>
+      </main>
+    </div>
+
+    <nav aria-label="breadcrumb" class="bg-light py-3">
+      <div class="container">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Campuses</li>
+        </ol>
+      </div>
+    </nav>
+
+    <section class="py-5">
+    <section class="py-5">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">Main Campus</h2>
+          <p class="section-subtitle">The heart of ISCP's academic excellence</p>
+        </div>
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-4">
+            <div class="campus-image-container" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#mainCampusModal">
+              <img src="/images/campuses/maincampus.jpg" alt="Main Campus" class="img-fluid rounded shadow-lg" style="width: 100%; height: 400px; object-fit: cover;">
+            </div>
+          </div>
+          <div class="col-lg-6 mb-4">
+            <div class="campus-info">
+              <h3 class="campus-name">ISCP Main Campus</h3>
+              <p class="campus-location"><i class="bi bi-geo-alt-fill me-2"></i>Manila, Philippines</p>
+              <p class="campus-description">
+                Our flagship campus located in the heart of Manila, featuring state-of-the-art facilities, 
+                modern classrooms, advanced laboratories, and comprehensive student services. This campus 
+                serves as the administrative center and houses our main academic programs.
+              </p>
+              <div class="campus-features">
+                <h5>Key Features:</h5>
+                <ul class="list-unstyled">
+                  <li><i class="bi bi-check-circle-fill me-2 text-success"></i>Central Library with 100,000+ volumes</li>
+                  <li><i class="bi bi-check-circle-fill me-2 text-success"></i>Advanced Computer Laboratories</li>
+                  <li><i class="bi bi-check-circle-fill me-2 text-success"></i>Research Centers and Innovation Hub</li>
+                  <li><i class="bi bi-check-circle-fill me-2 text-success"></i>Student Center and Recreation Facilities</li>
+                  <li><i class="bi bi-check-circle-fill me-2 text-success"></i>Modern Auditorium and Conference Rooms</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">Campuses</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="campus-card" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#biringanCampusModal">
+              <div class="campus-card-image">
+                <img src="/images/campuses/biringancampus.jpg" alt="Biringan Campus" class="img-fluid">
+              </div>
+              <div class="campus-card-body">
+                <h4 class="campus-card-title">Biringan Campus</h4>
+                <p class="campus-card-location"><i class="bi bi-geo-alt-fill me-2"></i>Biringan, Philippines</p>
+                <p class="campus-card-description">
+                  Our mystical Biringan Campus offers unique programs in folklore studies, supernatural sciences, 
+                  and mystical arts. Students learn about Philippine mythology and ancient wisdom traditions.
+                </p>
+                <div class="campus-card-features">
+                  <span class="badge bg-primary me-2">Folklore Studies</span>
+                  <span class="badge bg-primary me-2">Mystical Arts</span>
+                  <span class="badge bg-primary me-2">Supernatural Sciences</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="campus-card" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#sunMoonCampusModal">
+              <div class="campus-card-image">
+                <img src="/images/campuses/sunandmooncampus.jpg" alt="Sun and Moon Campus" class="img-fluid">
+              </div>
+              <div class="campus-card-body">
+                <h4 class="campus-card-title">Sun and Moon Campus</h4>
+                <p class="campus-card-location"><i class="bi bi-geo-alt-fill me-2"></i>Solar System</p>
+                <p class="campus-card-description">
+                  Our celestial Sun and Moon Campus specializes in astronomy, space sciences, and lunar studies. 
+                  Features advanced telescopes and space research facilities for cosmic exploration.
+                </p>
+                <div class="campus-card-features">
+                  <span class="badge bg-primary me-2">Astronomy</span>
+                  <span class="badge bg-primary me-2">Space Sciences</span>
+                  <span class="badge bg-primary me-2">Lunar Studies</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="campus-card" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#planetaryCampusModal">
+              <div class="campus-card-image">
+                <img src="/images/campuses/planetarycampus.jpg" alt="Planetary Campus" class="img-fluid">
+              </div>
+              <div class="campus-card-body">
+                <h4 class="campus-card-title">Planetary Campus</h4>
+                <p class="campus-card-location"><i class="bi bi-geo-alt-fill me-2"></i>Various Planets</p>
+                <p class="campus-card-description">
+                  Our Planetary Campus offers interplanetary studies across multiple celestial bodies. 
+                  Students can specialize in Mars colonization, Venus atmospheric studies, or Jupiter exploration.
+                </p>
+                <div class="campus-card-features">
+                  <span class="badge bg-primary me-2">Interplanetary Studies</span>
+                  <span class="badge bg-primary me-2">Mars Colonization</span>
+                  <span class="badge bg-primary me-2">Venus Studies</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="campus-card" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#atlanticCampusModal">
+              <div class="campus-card-image">
+                <img src="/images/campuses/atlanticcampus.jpg" alt="Atlantic Campus" class="img-fluid">
+              </div>
+              <div class="campus-card-body">
+                <h4 class="campus-card-title">Atlantic Campus</h4>
+                <p class="campus-card-location"><i class="bi bi-geo-alt-fill me-2"></i>Atlantic Ocean</p>
+                <p class="campus-card-description">
+                  Our underwater Atlantic Campus specializes in marine biology, oceanography, and underwater 
+                  archaeology. Features state-of-the-art submarine research facilities and deep-sea laboratories.
+                </p>
+                <div class="campus-card-features">
+                  <span class="badge bg-primary me-2">Marine Biology</span>
+                  <span class="badge bg-primary me-2">Oceanography</span>
+                  <span class="badge bg-primary me-2">Underwater Archaeology</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">Extravagant, Out-of-This-World Campuses</h2>
+          <p class="section-subtitle">Per The Beat.Asia</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="campus-card" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#jupiterCampusModal">
+              <div class="campus-card-image">
+                <img src="/images/campuses/jupitercampus.jpg" alt="Jupiter Campus" class="img-fluid">
+              </div>
+              <div class="campus-card-body">
+                <h4 class="campus-card-title">Jupiter Campus</h4>
+                <p class="campus-card-location"><i class="bi bi-geo-alt-fill me-2"></i>Jupiter, Solar System</p>
+                <p class="campus-card-description">
+                  Our Jupiter Campus offers gas giant studies, atmospheric research, and Jovian moon exploration. 
+                  Students study the largest planet in our solar system and its fascinating storm systems.
+                </p>
+                <div class="campus-card-features">
+                  <span class="badge bg-primary me-2">Gas Giant Studies</span>
+                  <span class="badge bg-primary me-2">Atmospheric Research</span>
+                  <span class="badge bg-primary me-2">Jovian Moon Exploration</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="campus-card" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#amazonCampusModal">
+              <div class="campus-card-image">
+                <img src="/images/campuses/amazoncampus.jpg" alt="Amazon Campus" class="img-fluid">
+              </div>
+              <div class="campus-card-body">
+                <h4 class="campus-card-title">Amazon Campus</h4>
+                <p class="campus-card-location"><i class="bi bi-geo-alt-fill me-2"></i>Amazon Rainforest</p>
+                <p class="campus-card-description">
+                  Our Amazon Campus specializes in rainforest ecology, biodiversity studies, and sustainable 
+                  development. Students conduct research in one of the world's most diverse ecosystems.
+                </p>
+                <div class="campus-card-features">
+                  <span class="badge bg-primary me-2">Rainforest Ecology</span>
+                  <span class="badge bg-primary me-2">Biodiversity Studies</span>
+                  <span class="badge bg-primary me-2">Sustainable Development</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="campus-card" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#antarcticaCampusModal">
+              <div class="campus-card-image">
+                <img src="/images/campuses/antarticacampus.jpg" alt="Antarctica Campus" class="img-fluid">
+              </div>
+              <div class="campus-card-body">
+                <h4 class="campus-card-title">Antarctica Campus</h4>
+                <p class="campus-card-location"><i class="bi bi-geo-alt-fill me-2"></i>Antarctica</p>
+                <p class="campus-card-description">
+                  Our Antarctica Campus offers polar research, climate change studies, and glacial sciences. 
+                  Students conduct groundbreaking research in one of the most extreme environments on Earth.
+                </p>
+                <div class="campus-card-features">
+                  <span class="badge bg-primary me-2">Polar Research</span>
+                  <span class="badge bg-primary me-2">Climate Change Studies</span>
+                  <span class="badge bg-primary me-2">Glacial Sciences</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="campus-card" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#atlantisCampusModal">
+              <div class="campus-card-image">
+                <img src="/images/campuses/atlantiscampus.jpg" alt="Atlantis Campus" class="img-fluid">
+              </div>
+              <div class="campus-card-body">
+                <h4 class="campus-card-title">Atlantis Campus</h4>
+                <p class="campus-card-location"><i class="bi bi-geo-alt-fill me-2"></i>Lost City of Atlantis</p>
+                <p class="campus-card-description">
+                  Our legendary Atlantis Campus offers underwater archaeology, ancient civilization studies, 
+                  and marine engineering. Students explore the mysteries of the lost underwater city.
+                </p>
+                <div class="campus-card-features">
+                  <span class="badge bg-primary me-2">Underwater Archaeology</span>
+                  <span class="badge bg-primary me-2">Ancient Civilizations</span>
+                  <span class="badge bg-primary me-2">Marine Engineering</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">Special & Overseas Campuses</h2>
+          <p class="section-subtitle">Unique extensions and international locations</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="campus-card" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#lowOrbitCampusModal">
+              <div class="campus-card-image">
+                <img src="/images/campuses/loworbitcampus.jpg" alt="Low Earth Orbit Campus" class="img-fluid">
+              </div>
+              <div class="campus-card-body">
+                <h4 class="campus-card-title">Low Earth Orbit Campus</h4>
+                <p class="campus-card-location"><i class="bi bi-geo-alt-fill me-2"></i>Low Earth Orbit</p>
+                <p class="campus-card-description">
+                  Our space-based Low Earth Orbit Campus offers satellite technology, space engineering, 
+                  and orbital mechanics. Students experience zero-gravity learning in our orbital station.
+                </p>
+                <div class="campus-card-features">
+                  <span class="badge bg-primary me-2">Satellite Technology</span>
+                  <span class="badge bg-primary me-2">Space Engineering</span>
+                  <span class="badge bg-primary me-2">Orbital Mechanics</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="campus-card" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#robloxCampusModal">
+              <div class="campus-card-image">
+                <img src="/images/Seal.png" alt="Roblox Campus" class="img-fluid">
+              </div>
+              <div class="campus-card-body">
+                <h4 class="campus-card-title">Roblox Campus</h4>
+                <p class="campus-card-location"><i class="bi bi-geo-alt-fill me-2"></i>Roblox Metaverse</p>
+                <p class="campus-card-description">
+                  Our virtual Roblox Campus offers game development, digital arts, and metaverse studies. 
+                  Students create immersive experiences in the world's largest user-generated gaming platform.
+                </p>
+                <div class="campus-card-features">
+                  <span class="badge bg-primary me-2">Game Development</span>
+                  <span class="badge bg-primary me-2">Digital Arts</span>
+                  <span class="badge bg-primary me-2">Metaverse Studies</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="campus-card" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#lasVegasCampusModal">
+              <div class="campus-card-image">
+                <img src="/images/Seal.png" alt="Las Vegas Campus" class="img-fluid">
+              </div>
+              <div class="campus-card-body">
+                <h4 class="campus-card-title">Las Vegas Campus</h4>
+                <p class="campus-card-location"><i class="bi bi-geo-alt-fill me-2"></i>Las Vegas, U.S.</p>
+                <p class="campus-card-description">
+                  Our Las Vegas Campus specializes in hospitality management, entertainment business, and 
+                  casino operations. Students learn in the entertainment capital of the world.
+                </p>
+                <div class="campus-card-features">
+                  <span class="badge bg-primary me-2">Hospitality Management</span>
+                  <span class="badge bg-primary me-2">Entertainment Business</span>
+                  <span class="badge bg-primary me-2">Casino Operations</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="campus-card" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#hardvardCampusModal">
+              <div class="campus-card-image">
+                <img src="/images/Seal.png" alt="Hardvard Campus" class="img-fluid">
+              </div>
+              <div class="campus-card-body">
+                <h4 class="campus-card-title">Hardvard Campus</h4>
+                <p class="campus-card-location"><i class="bi bi-geo-alt-fill me-2"></i>Cambridge, Massachusetts</p>
+                <p class="campus-card-description">
+                  Our Hardvard Campus offers advanced research programs, prestigious academic partnerships, 
+                  and world-class facilities. Students benefit from our unique collaboration with Harvard University.
+                </p>
+                <div class="campus-card-features">
+                  <span class="badge bg-primary me-2">Advanced Research</span>
+                  <span class="badge bg-primary me-2">Academic Partnerships</span>
+                  <span class="badge bg-primary me-2">World-Class Facilities</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">Whimsical Extensions</h2>
+          <p class="section-subtitle">Unique and extraordinary campus locations</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="facility-card text-center" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#siberiaCampusModal">
+              <div class="facility-icon mb-3">
+                <i class="bi bi-snow display-4"></i>
+              </div>
+              <h4>Siberia Campus</h4>
+              <p>Arctic studies, permafrost research, and extreme cold weather survival training in the heart of Siberia.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="facility-card text-center" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#bermudaCampusModal">
+              <div class="facility-icon mb-3">
+                <i class="bi bi-water display-4"></i>
+              </div>
+              <h4>Bermuda Campus</h4>
+              <p>Marine sciences, triangle mysteries research, and ocean exploration in the mysterious Bermuda region.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="facility-card text-center" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#encantadiaCampusModal">
+              <div class="facility-icon mb-3">
+                <i class="bi bi-magic display-4"></i>
+              </div>
+              <h4>Encantadia Campus</h4>
+              <p>Fantasy studies, magical arts, and enchanted realm exploration in the mystical land of Encantadia.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="facility-card text-center" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#chernobylCampusModal">
+              <div class="facility-icon mb-3">
+                <i class="bi bi-exclamation-triangle display-4"></i>
+              </div>
+              <h4>Chernobyl Campus</h4>
+              <p>Nuclear safety studies, radiation research, and disaster management in the historic Chernobyl area.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="facility-card text-center" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#djLoonyoAirportCampusModal">
+              <div class="facility-icon mb-3">
+                <i class="bi bi-airplane display-4"></i>
+              </div>
+              <h4>DJ Loonyo International Airport</h4>
+              <p>Aviation studies, airport management, and flight operations at our dedicated airport campus.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="facility-card text-center" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#kamparasCampusModal">
+              <div class="facility-icon mb-3">
+                <i class="bi bi-tree display-4"></i>
+              </div>
+              <h4>Kamparas Campus</h4>
+              <p>Forest ecology, wildlife conservation, and nature preservation studies in the Kamparas region.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">Campus Facilities</h2>
+          <p class="section-subtitle">World-class infrastructure for exceptional learning</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="facility-card text-center">
+              <div class="facility-icon mb-3">
+                <i class="bi bi-book display-4"></i>
+              </div>
+              <h4>Libraries</h4>
+              <p>Comprehensive collections with digital resources, study spaces, and research support services across all campuses.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="facility-card text-center">
+              <div class="facility-icon mb-3">
+                <i class="bi bi-laptop display-4"></i>
+              </div>
+              <h4>Computer Labs</h4>
+              <p>Modern computer laboratories equipped with the latest software and hardware for technology-based learning.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="facility-card text-center">
+              <div class="facility-icon mb-3">
+                <i class="bi bi-flask display-4"></i>
+              </div>
+              <h4>Science Laboratories</h4>
+              <p>Advanced laboratories for chemistry, biology, physics, and engineering with state-of-the-art equipment.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="facility-card text-center">
+              <div class="facility-icon mb-3">
+                <i class="bi bi-people display-4"></i>
+              </div>
+              <h4>Student Centers</h4>
+              <p>Vibrant spaces for student activities, organizations, and social interactions with modern amenities.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="facility-card text-center">
+              <div class="facility-icon mb-3">
+                <i class="bi bi-cup-hot display-4"></i>
+              </div>
+              <h4>Cafeterias</h4>
+              <p>Clean and comfortable dining areas serving nutritious meals and refreshments for students and staff.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="facility-card text-center">
+              <div class="facility-icon mb-3">
+                <i class="bi bi-wifi display-4"></i>
+              </div>
+              <h4>Wi-Fi & Technology</h4>
+              <p>High-speed internet connectivity and modern technology infrastructure throughout all campus facilities.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">Campus Life</h2>
+          <p class="section-subtitle">Experience the vibrant community and activities at ISCP</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="life-card text-center">
+              <div class="life-icon mb-3">
+                <i class="bi bi-music-note-beamed display-4"></i>
+              </div>
+              <h5>Cultural Events</h5>
+              <p>Annual festivals, cultural shows, and artistic performances celebrating diversity.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="life-card text-center">
+              <div class="life-icon mb-3">
+                <i class="bi bi-trophy display-4"></i>
+              </div>
+              <h5>Sports & Athletics</h5>
+              <p>Inter-campus competitions, sports facilities, and fitness programs for all students.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="life-card text-center">
+              <div class="life-icon mb-3">
+                <i class="bi bi-lightbulb display-4"></i>
+              </div>
+              <h5>Student Organizations</h5>
+              <p>Academic clubs, professional societies, and interest groups for skill development.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="life-card text-center">
+              <div class="life-icon mb-3">
+                <i class="bi bi-heart display-4"></i>
+              </div>
+              <h5>Community Service</h5>
+              <p>Outreach programs, volunteer opportunities, and social responsibility initiatives.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">Visit Our Campuses</h2>
+          <p class="section-subtitle">Schedule a campus tour or get in touch with our admissions team</p>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="visit-card text-center p-5">
+              <div class="visit-icon mb-4">
+                <i class="bi bi-calendar-check display-1"></i>
+              </div>
+              <h4>Schedule a Campus Tour</h4>
+              <p class="lead mb-4">
+                Experience our facilities firsthand and meet with our academic advisors. 
+                Campus tours are available Monday through Friday, 9:00 AM to 4:00 PM.
+              </p>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <a href="#" class="btn btn-primary btn-lg w-100">
+                    <i class="bi bi-calendar-event me-2"></i>Book a Tour
+                  </a>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <a href="#" class="btn btn-outline-primary btn-lg w-100">
+                    <i class="bi bi-envelope me-2"></i>Contact Admissions
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">Student Portal Login</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form class="login-form">
+              <div class="mb-3">
+                <label for="studentId" class="form-label">Student ID</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="studentId" 
+                  placeholder="Enter your Student ID"
+                  required
+                >
+              </div>
+              
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input 
+                  type="password" 
+                  class="form-control" 
+                  id="password" 
+                  placeholder="Enter your password"
+                  required
+                >
+              </div>
+              
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="rememberMe">
+                <label class="form-check-label" for="rememberMe">
+                  Remember me
+                </label>
+              </div>
+              
+              <button type="submit" class="btn btn-primary w-100 mb-3">
+                Sign In
+              </button>
+              
+              <div class="text-center">
+                <a href="#" class="forgot-password">Forgot Password?</a>
+              </div>
+            </form>
+            
+            <div class="divider my-4">
+              <span>or</span>
+            </div>
+            
+            <div class="text-center">
+              <p class="mb-2">New student?</p>
+              <a href="register.html" class="btn btn-outline-primary">Create Account</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/bootstrap.bundle.js"></script>
+    <script src="/js/custom.js"></script>
+  </body>
+</html>
+

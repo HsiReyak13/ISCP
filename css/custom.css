@@ -79,6 +79,52 @@ main {
   width: 100%;
 }
 
+/* Navbar Dark Specific Styles for Main Navigation */
+.bg-main .navbar-dark .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.75) !important;
+  transition: color 0.3s ease;
+  margin: 0 5px;
+  padding: 8px 16px !important;
+  position: relative;
+}
+
+.bg-main .navbar-dark .navbar-nav .nav-link:hover {
+  color: #3182ce !important;
+}
+
+.bg-main .navbar-dark .navbar-nav .nav-link.active {
+  color: #3182ce !important;
+}
+
+.bg-main .navbar-dark .navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background-color: #3182ce;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.bg-main .navbar-dark .navbar-nav .nav-link:hover::after,
+.bg-main .navbar-dark .navbar-nav .nav-link.active::after {
+  width: 100%;
+}
+
+/* Main Navigation Icon Styles for Navbar Dark */
+.bg-main .navbar-dark .nav-link i {
+  margin-right: 8px;
+  font-size: 1.1rem;
+}
+
+.bg-main .navbar-dark .nav-link .bi-chevron-down {
+  margin-left: 4px;
+  font-size: 0.8rem;
+}
+
 /* About Us Section Styles */
 .about-section {
   background-color: #f8f9fa;
@@ -1240,16 +1286,16 @@ main {
 
 /* Responsive Design for Secondary Navigation */
 @media (max-width: 1200px) {
-  .navbar-light .navbar-nav .nav-link {
+  .navbar-light.bg-light .navbar-nav .nav-link {
     padding: 12px 8px;
     margin: 0 2px;
   }
   
-  .navbar-light .navbar-nav .nav-link i {
+  .navbar-light.bg-light .navbar-nav .nav-link i {
     font-size: 1.25rem;
   }
   
-  .navbar-light .navbar-nav .nav-link span {
+  .navbar-light.bg-light .navbar-nav .nav-link span {
     font-size: 0.75rem;
   }
 }
@@ -1260,23 +1306,23 @@ html {
 }
 
 @media (max-width: 768px) {
-  .navbar-light .navbar-nav {
+  .navbar-light.bg-light .navbar-nav {
     flex-wrap: wrap;
     justify-content: center;
   }
   
-  .navbar-light .navbar-nav .nav-link {
+  .navbar-light.bg-light .navbar-nav .nav-link {
     padding: 8px 6px;
     margin: 2px;
     min-width: 80px;
   }
   
-  .navbar-light .navbar-nav .nav-link i {
+  .navbar-light.bg-light .navbar-nav .nav-link i {
     font-size: 1.1rem;
     margin-bottom: 4px;
   }
   
-  .navbar-light .navbar-nav .nav-link span {
+  .navbar-light.bg-light .navbar-nav .nav-link span {
     font-size: 0.7rem;
   }
   
@@ -1299,17 +1345,17 @@ html {
 }
 
 @media (max-width: 576px) {
-  .navbar-light .navbar-nav .nav-link {
+  .navbar-light.bg-light .navbar-nav .nav-link {
     padding: 6px 4px;
     margin: 1px;
     min-width: 70px;
   }
   
-  .navbar-light .navbar-nav .nav-link i {
+  .navbar-light.bg-light .navbar-nav .nav-link i {
     font-size: 1rem;
   }
   
-  .navbar-light .navbar-nav .nav-link span {
+  .navbar-light.bg-light .navbar-nav .nav-link span {
     font-size: 0.65rem;
   }
   
@@ -1321,4 +1367,273 @@ html {
   .timeline-number {
     font-size: 1.1rem;
   }
+}
+
+/* Campuses Page Styles */
+.campuses-page .campus-image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.campus-info {
+  padding: 20px;
+}
+
+.campus-name {
+  color: #1a365d;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.campus-location {
+  color: #3182ce;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.campus-description {
+  color: #2d3748;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  font-size: 1.1rem;
+}
+
+.campus-features h5 {
+  color: #1a365d;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.campus-features ul li {
+  color: #2d3748;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.campus-features ul li:last-child {
+  margin-bottom: 0;
+}
+
+/* Campus Cards */
+.campus-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(6, 16, 92, 0.08);
+  border: 1px solid rgba(6, 16, 92, 0.05);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.campus-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(6, 16, 92, 0.15);
+}
+
+.campus-card-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.campus-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.campus-card:hover .campus-card-image img {
+  transform: scale(1.05);
+}
+
+.campus-card-body {
+  padding: 24px;
+}
+
+.campus-card-title {
+  color: #1a365d;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.campus-card-location {
+  color: #3182ce;
+  font-weight: 600;
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+}
+
+.campus-card-description {
+  color: #2d3748;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.campus-card-features {
+  margin-top: 16px;
+}
+
+.campus-card-features .badge {
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  margin-bottom: 8px;
+}
+
+/* Facility Cards */
+.facility-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(6, 16, 92, 0.08);
+  border: 1px solid rgba(6, 16, 92, 0.05);
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.facility-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(6, 16, 92, 0.15);
+}
+
+.facility-icon {
+  color: #3182ce;
+}
+
+.facility-card h4 {
+  color: #1a365d;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.facility-card p {
+  color: #2d3748;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* Life Cards */
+.life-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(6, 16, 92, 0.08);
+  border: 1px solid rgba(6, 16, 92, 0.05);
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.life-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(6, 16, 92, 0.15);
+}
+
+.life-icon {
+  color: #3182ce;
+}
+
+.life-card h5 {
+  color: #1a365d;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.life-card p {
+  color: #2d3748;
+  line-height: 1.6;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+}
+
+/* Visit Card */
+.visit-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(6, 16, 92, 0.08);
+  border: 1px solid rgba(6, 16, 92, 0.05);
+}
+
+.visit-icon {
+  color: #3182ce;
+}
+
+.visit-card h4 {
+  color: #1a365d;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.visit-card .lead {
+  color: #2d3748;
+  line-height: 1.6;
+}
+
+/* Responsive Design for Campuses */
+@media (max-width: 768px) {
+  .campus-name {
+    font-size: 1.75rem;
+  }
+  
+  .campus-card-body {
+    padding: 20px;
+  }
+  
+  .facility-card,
+  .life-card {
+    padding: 20px;
+  }
+  
+  .visit-card {
+    padding: 30px 20px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .campus-name {
+    font-size: 1.5rem;
+  }
+  
+  .campus-card-body {
+    padding: 16px;
+  }
+  
+  .facility-card,
+  .life-card {
+    padding: 16px;
+  }
+  
+  .visit-card {
+    padding: 20px 16px !important;
+  }
+}
+
+/* Breadcrumb Navigation Styles */
+.breadcrumb {
+  background-color: transparent;
+  padding: 0;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: ">";
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.breadcrumb-item a {
+  color: #3182ce;
+  font-weight: 500;
+}
+
+.breadcrumb-item a:hover {
+  color: #1a365d;
+  text-decoration: underline !important;
+}
+
+.breadcrumb-item.active {
+  color: #6b7280;
+  font-weight: 600;
 }

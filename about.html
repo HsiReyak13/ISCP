@@ -10,7 +10,7 @@
   </head>
   <body class="about-page">
     <div class="bg-main">
-      <nav class="navbar navbar-expand-lg navbar-light px-5">
+      <nav class="navbar navbar-expand-lg navbar-dark px-5">
         <div class="container-fluid">
           <a href="index.html" class="navbar-brand">
             <img src="/images/Seal.png" alt="ISCP Logo" height="50" />
@@ -34,11 +34,14 @@
               <a class="nav-link active" href="about.html">
                 <i class="bi bi-info-circle"></i> About
               </a>
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="campuses.html">
                 <i class="bi bi-graduation-cap"></i> Campuses
               </a>
               <a class="nav-link" href="#">
                 <i class="bi bi-flask"></i> Research
+              </a>
+              <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
+                <i class="bi bi-box-arrow-in-right"></i> Login
               </a>
             </div>
           </div>
@@ -46,7 +49,6 @@
       </nav>
     </div>
 
-    <!-- Secondary Navigation Bar for About Section -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
       <div class="container-fluid">
         <div class="navbar-nav mx-auto">
@@ -108,7 +110,6 @@
       </div>
     </nav>
 
-    <!-- Breadcrumbs -->
     <div class="container mt-3">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -118,7 +119,6 @@
       </nav>
     </div>
 
-    <!-- Main Content - History Section -->
     <section id="history" class="py-5">
       <div class="container">
         <div class="row justify-content-center">
@@ -136,7 +136,6 @@
       </div>
     </section>
 
-    <!-- Our Transformation Journey Timeline -->
     <section class="py-5">
       <div class="container">
         <div class="row justify-content-center">
@@ -197,7 +196,6 @@
       </div>
     </section>
 
-    <!-- Vision-Mission Section -->
     <section id="vision-mission" class="py-5 bg-light">
       <div class="container">
         <div class="row">
@@ -227,7 +225,6 @@
       </div>
     </section>
 
-    <!-- Goals & Objectives Section -->
     <section id="goals" class="py-5">
       <div class="container">
         <div class="text-center mb-5">
@@ -266,7 +263,6 @@
       </div>
     </section>
 
-    <!-- Core Values Section -->
     <section id="values" class="py-5 bg-light">
       <div class="container">
         <div class="text-center mb-5">
@@ -332,7 +328,6 @@
       </div>
     </section>
 
-    <!-- Quality Policy Section -->
     <section id="policy" class="py-5">
       <div class="container">
         <div class="text-center mb-5">
@@ -356,7 +351,6 @@
       </div>
     </section>
 
-    <!-- Mandates & Characteristics Section -->
     <section id="mandates" class="py-5 bg-light">
       <div class="container">
         <div class="text-center mb-5">
@@ -390,7 +384,6 @@
       </div>
     </section>
 
-    <!-- University Councils Section -->
     <section id="councils" class="py-5">
       <div class="container">
         <div class="text-center mb-5">
@@ -429,7 +422,6 @@
       </div>
     </section>
 
-    <!-- Milestones Section -->
     <section id="milestones" class="py-5 bg-light">
       <div class="container">
         <div class="text-center mb-5">
@@ -477,7 +469,6 @@
       </div>
     </section>
 
-    <!-- Contact Us Section -->
     <section id="contact" class="py-5">
       <div class="container">
         <div class="text-center mb-5">
@@ -542,6 +533,66 @@
         </div>
       </div>
     </section>
+
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">Student Portal Login</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form class="login-form">
+              <div class="mb-3">
+                <label for="studentId" class="form-label">Student ID</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="studentId" 
+                  placeholder="Enter your Student ID"
+                  required
+                >
+              </div>
+              
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input 
+                  type="password" 
+                  class="form-control" 
+                  id="password" 
+                  placeholder="Enter your password"
+                  required
+                >
+              </div>
+              
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="rememberMe">
+                <label class="form-check-label" for="rememberMe">
+                  Remember me
+                </label>
+              </div>
+              
+              <button type="submit" class="btn btn-primary w-100 mb-3">
+                Sign In
+              </button>
+              
+              <div class="text-center">
+                <a href="#" class="forgot-password">Forgot Password?</a>
+              </div>
+            </form>
+            
+            <div class="divider my-4">
+              <span>or</span>
+            </div>
+            
+            <div class="text-center">
+              <p class="mb-2">New student?</p>
+              <a href="register.html" class="btn btn-outline-primary">Create Account</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="/js/bootstrap.bundle.js"></script>
     <script src="/js/custom.js"></script>
