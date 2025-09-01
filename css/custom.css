@@ -22,16 +22,35 @@ main {
   z-index: 1;
 }
 
+/* General Navigation Link Styles */
 .nav-link {
   position: relative;
   z-index: 1;
+  transition: color 0.3s ease;
+  margin: 0 5px;
+  padding: 8px 16px !important;
+}
+
+/* Main Navigation Icon Styles */
+.navbar .nav-link i {
+  margin-right: 8px;
+  font-size: 1.1rem;
+}
+
+.navbar .nav-link .bi-chevron-down {
+  margin-left: 4px;
+  font-size: 0.8rem;
+}
+
+/* Main Navigation Specific Styles */
+.bg-main .navbar .nav-link {
   color: white !important;
   transition: color 0.3s ease;
   margin: 0 5px;
   padding: 8px 16px !important;
 }
 
-.nav-link::after {
+.bg-main .navbar .nav-link::after {
   content: '';
   position: absolute;
   bottom: -5px;
@@ -44,19 +63,19 @@ main {
   border-radius: 2px;
 }
 
-.nav-link:hover::after {
+.bg-main .navbar .nav-link:hover::after {
   width: 100%;
 }
 
-.nav-link:hover {
+.bg-main .navbar .nav-link:hover {
   color: #3182ce !important;
 }
 
-.nav-link.active {
+.bg-main .navbar .nav-link.active {
   color: #3182ce !important;
 }
 
-.nav-link.active::after {
+.bg-main .navbar .nav-link.active::after {
   width: 100%;
 }
 
@@ -896,5 +915,410 @@ main {
   .leader-image {
     width: 80px;
     height: 80px;
+  }
+}
+
+/* About Page Styles */
+.mission-vision-section {
+  background-color: #f8f9fa;
+  padding: 80px 0;
+}
+
+.mission-card,
+.vision-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 8px 32px rgba(6, 16, 92, 0.08);
+  border: 1px solid rgba(6, 16, 92, 0.05);
+  height: 100%;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.mission-card:hover,
+.vision-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(6, 16, 92, 0.15);
+}
+
+.card-icon {
+  font-size: 3rem;
+  color: #3182ce;
+  margin-bottom: 20px;
+}
+
+.card-title {
+  color: #1a365d;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.card-text {
+  color: #2d3748;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* Secondary Navigation Bar Styles */
+.about-page .navbar-light .navbar-nav .nav-link,
+.navbar-light.bg-light .navbar-nav .nav-link {
+  color: #6b7280 !important;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 16px 12px;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  margin: 0 4px;
+}
+
+.about-page .navbar-light .navbar-nav .nav-link:hover,
+.navbar-light.bg-light .navbar-nav .nav-link:hover {
+  color: #1a365d !important;
+  background-color: rgba(49, 130, 206, 0.1);
+}
+
+.about-page .navbar-light .navbar-nav .nav-link.active,
+.navbar-light.bg-light .navbar-nav .nav-link.active {
+  color: #1a365d !important;
+  background-color: rgba(49, 130, 206, 0.15);
+  font-weight: 600;
+}
+
+.about-page .navbar-light .navbar-nav .nav-link i,
+.navbar-light.bg-light .navbar-nav .nav-link i {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+}
+
+.about-page .navbar-light .navbar-nav .nav-link span,
+.navbar-light.bg-light .navbar-nav .nav-link span {
+  display: block;
+  font-size: 0.8rem;
+  line-height: 1.2;
+}
+
+/* Breadcrumb Styles */
+.breadcrumb {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumb-item a {
+  color: #3182ce;
+  text-decoration: none;
+}
+
+.breadcrumb-item.active {
+  color: #6b7280;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: ">";
+  color: #6b7280;
+}
+
+/* Timeline Styles */
+.timeline-step {
+  text-align: center;
+}
+
+.timeline-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid #e5e7eb;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a365d;
+}
+
+.timeline-label {
+  margin-top: 16px;
+}
+
+.timeline-label strong {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a365d;
+  margin-bottom: 4px;
+}
+
+.timeline-label span {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+/* Section Styles */
+.section-title {
+  color: #1a365d;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  color: #4a5568;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* Card Styles */
+.goal-card,
+.value-card,
+.council-card,
+.milestone-card,
+.policy-card,
+.mandate-card,
+.characteristic-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(6, 16, 92, 0.08);
+  border: 1px solid rgba(6, 16, 92, 0.05);
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.goal-card:hover,
+.value-card:hover,
+.council-card:hover,
+.milestone-card:hover,
+.policy-card:hover,
+.mandate-card:hover,
+.characteristic-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(6, 16, 92, 0.15);
+}
+
+.goal-icon,
+.value-icon,
+.council-icon,
+.milestone-icon,
+.policy-icon {
+  font-size: 2.5rem;
+  color: #3182ce;
+  margin-bottom: 20px;
+}
+
+.goal-card h4,
+.value-card h4,
+.council-card h4,
+.milestone-card h4,
+.policy-card h4,
+.mandate-card h4,
+.characteristic-card h4 {
+  color: #1a365d;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.goal-card p,
+.value-card p,
+.council-card p,
+.milestone-card p,
+.policy-card p,
+.mandate-card p,
+.characteristic-card p {
+  color: #2d3748;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* Policy Card Special Styles */
+.policy-card {
+  text-align: center;
+  padding: 40px;
+}
+
+.policy-icon {
+  font-size: 4rem;
+  margin-bottom: 24px;
+}
+
+/* Mandate and Characteristic Cards */
+.mandate-card,
+.characteristic-card {
+  text-align: left;
+}
+
+.mandate-card h4,
+.characteristic-card h4 {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.mandate-card ul,
+.characteristic-card ul {
+  margin-bottom: 0;
+}
+
+.mandate-card li,
+.characteristic-card li {
+  margin-bottom: 12px;
+  color: #2d3748;
+  line-height: 1.6;
+}
+
+.mandate-card li:last-child,
+.characteristic-card li:last-child {
+  margin-bottom: 0;
+}
+
+.mandate-card i,
+.characteristic-card i {
+  color: #3182ce;
+  margin-right: 8px;
+}
+
+/* Contact Section Styles */
+.contact-info,
+.contact-form {
+  background-color: #f8f9fa;
+  border-radius: 16px;
+  padding: 30px;
+  height: 100%;
+}
+
+.contact-info h4,
+.contact-form h4 {
+  color: #1a365d;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.contact-item i {
+  font-size: 1.2rem;
+  color: #3182ce;
+  margin-right: 12px;
+  margin-top: 2px;
+}
+
+.contact-item div {
+  color: #2d3748;
+  line-height: 1.6;
+}
+
+.contact-item strong {
+  color: #1a365d;
+}
+
+.contact-form .form-control {
+  border: 2px solid rgba(6, 16, 92, 0.1);
+  border-radius: 8px;
+  padding: 12px 16px;
+  transition: all 0.3s ease;
+}
+
+.contact-form .form-control:focus {
+  border-color: #3182ce;
+  box-shadow: 0 0 0 0.2rem rgba(49, 130, 206, 0.25);
+}
+
+/* Responsive Design for Secondary Navigation */
+@media (max-width: 1200px) {
+  .navbar-light .navbar-nav .nav-link {
+    padding: 12px 8px;
+    margin: 0 2px;
+  }
+  
+  .navbar-light .navbar-nav .nav-link i {
+    font-size: 1.25rem;
+  }
+  
+  .navbar-light .navbar-nav .nav-link span {
+    font-size: 0.75rem;
+  }
+}
+
+/* Smooth Scrolling for Anchor Links */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (max-width: 768px) {
+  .navbar-light .navbar-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .navbar-light .navbar-nav .nav-link {
+    padding: 8px 6px;
+    margin: 2px;
+    min-width: 80px;
+  }
+  
+  .navbar-light .navbar-nav .nav-link i {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+  }
+  
+  .navbar-light .navbar-nav .nav-link span {
+    font-size: 0.7rem;
+  }
+  
+  .timeline-circle {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .timeline-number {
+    font-size: 1.25rem;
+  }
+  
+  .timeline-label strong {
+    font-size: 1rem;
+  }
+  
+  .timeline-label span {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-light .navbar-nav .nav-link {
+    padding: 6px 4px;
+    margin: 1px;
+    min-width: 70px;
+  }
+  
+  .navbar-light .navbar-nav .nav-link i {
+    font-size: 1rem;
+  }
+  
+  .navbar-light .navbar-nav .nav-link span {
+    font-size: 0.65rem;
+  }
+  
+  .timeline-circle {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .timeline-number {
+    font-size: 1.1rem;
   }
 }

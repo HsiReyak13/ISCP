@@ -413,3 +413,49 @@ function showDepartmentModal(title, content) {
   const modal = new bootstrap.Modal(document.getElementById('departmentModal'));
   modal.show();
 }
+
+// About Page Secondary Navigation Functions
+document.addEventListener('DOMContentLoaded', function() {
+  // Handle secondary navigation active states (only for the secondary nav with bg-light class)
+  const secondaryNavLinks = document.querySelectorAll('.navbar-light.bg-light .navbar-nav .nav-link');
+  
+  secondaryNavLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      // Remove active class from all secondary nav links
+      secondaryNavLinks.forEach(l => l.classList.remove('active'));
+      
+      // Add active class to clicked link
+      this.classList.add('active');
+    });
+  });
+  
+  // Update active state based on scroll position
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.navbar-light.bg-light .navbar-nav .nav-link[href^="#"]');
+  
+  function updateActiveNavLink() {
+    let current = '';
+    
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      
+      if (window.pageYOffset >= (sectionTop - 200)) {
+        current = section.getAttribute('id');
+      }
+    });
+    
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${current}`) {
+        link.classList.add('active');
+      }
+    });
+  }
+  
+  // Add scroll event listener
+  window.addEventListener('scroll', updateActiveNavLink);
+  
+  // Initial call to set active state
+  updateActiveNavLink();
+});

@@ -6,8 +6,9 @@
     <title>About Us - International State College of the Philippines</title>
     <link rel="stylesheet" href="/css/bootstrap.css" />
     <link rel="stylesheet" href="/css/custom.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
   </head>
-  <body>
+  <body class="about-page">
     <div class="bg-main">
       <nav class="navbar navbar-expand-lg navbar-light px-5">
         <div class="container-fluid">
@@ -27,35 +28,183 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ms-auto">
-              <a class="nav-link" href="index.html">Home</a>
-              <a class="nav-link active" href="about.html">About</a>
-              <a class="nav-link" href="#">Admission</a>
-              <a class="nav-link" href="#">Colleges</a>
-              <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+              <a class="nav-link" href="index.html">
+                <i class="bi bi-house-door"></i> Home
+              </a>
+              <a class="nav-link active" href="about.html">
+                <i class="bi bi-info-circle"></i> About
+              </a>
+              <a class="nav-link" href="#">
+                <i class="bi bi-graduation-cap"></i> Campuses
+              </a>
+              <a class="nav-link" href="#">
+                <i class="bi bi-flask"></i> Research
+              </a>
             </div>
           </div>
         </div>
       </nav>
-      <main
-        class="container text-center text-white d-flex flex-column justify-content-center align-items-center vh-100"
-      >
-        <h1 class="display-4 fw-bold">
-          About ISCP
-        </h1>
-        <p class="lead">
-          Discover our story, mission, and commitment to excellence in education.
-        </p>
-      </main>
     </div>
 
+    <!-- Secondary Navigation Bar for About Section -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+      <div class="container-fluid">
+        <div class="navbar-nav mx-auto">
+          <a class="nav-link active" href="#history">
+            <div class="text-center">
+              <i class="bi bi-clock display-6 d-block"></i>
+              <span>History</span>
+            </div>
+          </a>
+          <a class="nav-link" href="#vision-mission">
+            <div class="text-center">
+              <i class="bi bi-eye display-6 d-block"></i>
+              <span>Vision-Mission</span>
+            </div>
+          </a>
+          <a class="nav-link" href="#goals">
+            <div class="text-center">
+              <i class="bi bi-flag display-6 d-block"></i>
+              <span>Goals & Objectives</span>
+            </div>
+          </a>
+          <a class="nav-link" href="#values">
+            <div class="text-center">
+              <i class="bi bi-heart display-6 d-block"></i>
+              <span>Core Values</span>
+            </div>
+          </a>
+          <a class="nav-link" href="#policy">
+            <div class="text-center">
+              <i class="bi bi-star display-6 d-block"></i>
+              <span>Quality Policy</span>
+            </div>
+          </a>
+          <a class="nav-link" href="#mandates">
+            <div class="text-center">
+              <i class="bi bi-file-text display-6 d-block"></i>
+              <span>Mandates & Char...</span>
+            </div>
+          </a>
+          <a class="nav-link" href="#councils">
+            <div class="text-center">
+              <i class="bi bi-people display-6 d-block"></i>
+              <span>University Councils</span>
+            </div>
+          </a>
+          <a class="nav-link" href="#milestones">
+            <div class="text-center">
+              <i class="bi bi-trophy display-6 d-block"></i>
+              <span>Milestones</span>
+            </div>
+          </a>
+          <a class="nav-link" href="#contact">
+            <div class="text-center">
+              <i class="bi bi-telephone display-6 d-block"></i>
+              <span>Contact Us</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </nav>
 
-    <section class="mission-vision-section py-5">
+    <!-- Breadcrumbs -->
+    <div class="container mt-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="about.html">About</a></li>
+          <li class="breadcrumb-item active" aria-current="page">History</li>
+        </ol>
+      </nav>
+    </div>
+
+    <!-- Main Content - History Section -->
+    <section id="history" class="py-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <h1 class="display-4 fw-bold text-center mb-4">History</h1>
+            <div class="card border-0 shadow-sm">
+              <div class="card-body p-4">
+                <p class="lead text-center mb-0">
+                  This section contains the historical milestones of International State College of the Philippines.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Transformation Journey Timeline -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <h2 class="display-6 fw-bold text-center mb-5">Our Transformation Journey</h2>
+            <div class="card border-0 shadow-sm">
+              <div class="card-body p-5">
+                <div class="row align-items-center">
+                  <div class="col-md-3 text-center mb-4">
+                    <div class="timeline-step">
+                      <div class="timeline-circle mx-auto mb-3">
+                        <span class="timeline-number">1</span>
+                      </div>
+                      <div class="timeline-label">
+                        <strong>ISCP</strong><br>
+                        <span>2022</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 text-center mb-4">
+                    <div class="timeline-step">
+                      <div class="timeline-circle mx-auto mb-3">
+                        <span class="timeline-number">2</span>
+                      </div>
+                      <div class="timeline-label">
+                        <strong>ISCP</strong><br>
+                        <span>2023</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 text-center mb-4">
+                    <div class="timeline-step">
+                      <div class="timeline-circle mx-auto mb-3">
+                        <span class="timeline-number">3</span>
+                      </div>
+                      <div class="timeline-label">
+                        <strong>ISCP</strong><br>
+                        <span>2024</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 text-center mb-4">
+                    <div class="timeline-step">
+                      <div class="timeline-circle mx-auto mb-3">
+                        <span class="timeline-number">4</span>
+                      </div>
+                      <div class="timeline-label">
+                        <strong>ISCP</strong><br>
+                        <span>2025</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vision-Mission Section -->
+    <section id="vision-mission" class="py-5 bg-light">
       <div class="container">
         <div class="row">
           <div class="col-lg-6 mb-4">
             <div class="mission-card text-center p-4 h-100">
               <div class="card-icon mb-3">
-                <i class="bi bi-bullseye display-4 text-primary"></i>
+                <i class="bi bi-bullseye display-4"></i>
               </div>
               <h3 class="card-title">Our Mission</h3>
               <p class="card-text">
@@ -66,7 +215,7 @@
           <div class="col-lg-6 mb-4">
             <div class="vision-card text-center p-4 h-100">
               <div class="card-icon mb-3">
-                <i class="bi bi-eye display-4 text-success"></i>
+                <i class="bi bi-eye display-4"></i>
               </div>
               <h3 class="card-title">Our Vision</h3>
               <p class="card-text">
@@ -78,47 +227,47 @@
       </div>
     </section>
 
-
-    <section class="history-section py-5">
+    <!-- Goals & Objectives Section -->
+    <section id="goals" class="py-5">
       <div class="container">
         <div class="text-center mb-5">
-          <h2 class="section-title">Our History</h2>
-          <p class="section-subtitle">A journey of growth and excellence in education</p>
+          <h2 class="section-title">Goals & Objectives</h2>
+          <p class="section-subtitle">Our strategic direction for educational excellence</p>
         </div>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <h4>2022 - Foundation</h4>
-              <p>International State College of the Philippines was established with a vision to provide accessible, quality education to Filipino students. The institution began with a commitment to academic excellence and community service.</p>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="goal-card text-center p-4 h-100">
+              <div class="goal-icon mb-3">
+                <i class="bi bi-award display-4"></i>
+              </div>
+              <h4>Academic Excellence</h4>
+              <p>Maintain high standards in teaching, learning, and research across all academic programs.</p>
             </div>
           </div>
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <h4>2023 - Growth & Expansion</h4>
-              <p>ISCP expanded its academic programs and facilities, establishing partnerships with industry leaders and educational institutions. The college introduced new degree programs and enhanced its research capabilities.</p>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="goal-card text-center p-4 h-100">
+              <div class="goal-icon mb-3">
+                <i class="bi bi-people display-4"></i>
+              </div>
+              <h4>Student Development</h4>
+              <p>Foster holistic development of students through comprehensive educational experiences.</p>
             </div>
           </div>
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <h4>2024 - Academic Excellence</h4>
-              <p>The institution achieved significant milestones in academic performance, research output, and community engagement. ISCP strengthened its commitment to producing competent and ethical professionals.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <h4>2025 - Future Forward</h4>
-              <p>ISCP continues to evolve and adapt to the changing educational landscape, embracing technology and innovation while maintaining its core values of excellence, integrity, and service.</p>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="goal-card text-center p-4 h-100">
+              <div class="goal-icon mb-3">
+                <i class="bi bi-globe display-4"></i>
+              </div>
+              <h4>Global Competitiveness</h4>
+              <p>Prepare students to be globally competitive while maintaining Filipino values and identity.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="values-section py-5">
+    <!-- Core Values Section -->
+    <section id="values" class="py-5 bg-light">
       <div class="container">
         <div class="text-center mb-5">
           <h2 class="section-title">Our Core Values</h2>
@@ -128,7 +277,7 @@
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="value-card text-center p-4 h-100">
               <div class="value-icon mb-3">
-                <i class="bi bi-award display-4 text-warning"></i>
+                <i class="bi bi-award display-4"></i>
               </div>
               <h4>Excellence</h4>
               <p>We strive for the highest standards in all aspects of education, research, and service.</p>
@@ -137,7 +286,7 @@
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="value-card text-center p-4 h-100">
               <div class="value-icon mb-3">
-                <i class="bi bi-shield-check display-4 text-success"></i>
+                <i class="bi bi-shield-check display-4"></i>
               </div>
               <h4>Integrity</h4>
               <p>We uphold ethical principles, honesty, and transparency in all our actions and decisions.</p>
@@ -146,7 +295,7 @@
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="value-card text-center p-4 h-100">
               <div class="value-icon mb-3">
-                <i class="bi bi-people display-4 text-info"></i>
+                <i class="bi bi-people display-4"></i>
               </div>
               <h4>Respect</h4>
               <p>We value diversity, promote inclusivity, and treat everyone with dignity and respect.</p>
@@ -155,7 +304,7 @@
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="value-card text-center p-4 h-100">
               <div class="value-icon mb-3">
-                <i class="bi bi-lightbulb display-4 text-warning"></i>
+                <i class="bi bi-lightbulb display-4"></i>
               </div>
               <h4>Innovation</h4>
               <p>We encourage creativity, critical thinking, and the pursuit of new knowledge and solutions.</p>
@@ -164,7 +313,7 @@
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="value-card text-center p-4 h-100">
               <div class="value-icon mb-3">
-                <i class="bi bi-heart display-4 text-danger"></i>
+                <i class="bi bi-heart display-4"></i>
               </div>
               <h4>Service</h4>
               <p>We are committed to serving our community and contributing to national development.</p>
@@ -173,7 +322,7 @@
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="value-card text-center p-4 h-100">
               <div class="value-icon mb-3">
-                <i class="bi bi-globe display-4 text-primary"></i>
+                <i class="bi bi-globe display-4"></i>
               </div>
               <h4>Global Perspective</h4>
               <p>We prepare students to be globally competitive while maintaining Filipino values and identity.</p>
@@ -183,104 +332,153 @@
       </div>
     </section>
 
-
-    <section class="leadership-section py-5">
+    <!-- Quality Policy Section -->
+    <section id="policy" class="py-5">
       <div class="container">
         <div class="text-center mb-5">
-          <h2 class="section-title">Our Leadership</h2>
-          <p class="section-subtitle">Meet the dedicated professionals guiding our institution</p>
+          <h2 class="section-title">Quality Policy</h2>
+          <p class="section-subtitle">Our commitment to continuous improvement</p>
         </div>
-        <div class="row">
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="leader-card text-center p-4 h-100">
-              <div class="leader-image mb-3">
-                <img src="/images/Seal.png" alt="College President" class="rounded-circle" width="120" height="120" />
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="policy-card text-center p-5">
+              <div class="policy-icon mb-4">
+                <i class="bi bi-star display-1"></i>
               </div>
-              <div class="leader-info">
-                <h4 class="leader-name">Dr. Maria Santos</h4>
-                <p class="leader-title">College President</p>
-                <p class="leader-description">Leading ISCP with over 20 years of experience in higher education administration and a passion for academic excellence.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="leader-card text-center p-4 h-100">
-              <div class="leader-image mb-3">
-                <img src="/images/Seal.png" alt="Vice President for Academic Affairs" class="rounded-circle" width="120" height="120" />
-              </div>
-              <div class="leader-info">
-                <h4 class="leader-name">Dr. Roberto Cruz</h4>
-                <p class="leader-title">Vice President for Academic Affairs</p>
-                <p class="leader-description">Overseeing academic programs and ensuring the highest standards of education delivery across all colleges.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="leader-card text-center p-4 h-100">
-              <div class="leader-image mb-3">
-                <img src="/images/Seal.png" alt="Dean of Student Affairs" class="rounded-circle" width="120" height="120" />
-              </div>
-              <div class="leader-info">
-                <h4 class="leader-name">Prof. Ana Reyes</h4>
-                <p class="leader-title">Dean of Student Affairs</p>
-                <p class="leader-description">Dedicated to student welfare and creating a supportive environment for holistic development.</p>
-              </div>
+              <p class="lead">
+                ISCP is committed to providing quality education through continuous improvement of our academic programs, 
+                research capabilities, and community services. We strive to meet and exceed the expectations of our 
+                stakeholders while maintaining the highest standards of excellence in all our endeavors.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-
-    <section class="achievements-section py-5">
+    <!-- Mandates & Characteristics Section -->
+    <section id="mandates" class="py-5 bg-light">
       <div class="container">
         <div class="text-center mb-5">
-          <h2 class="section-title">Our Achievements</h2>
-          <p class="section-subtitle">Celebrating milestones and accomplishments</p>
+          <h2 class="section-title">Mandates & Characteristics</h2>
+          <p class="section-subtitle">Our institutional framework and distinctive features</p>
         </div>
         <div class="row">
-          <div class="col-lg-3 col-md-6 mb-4">
-            <div class="achievement-card text-center p-4 h-100">
-              <div class="achievement-icon mb-3">
-                <i class="bi bi-mortarboard display-4 text-primary"></i>
-              </div>
-              <h4>Academic Excellence</h4>
-              <p>Consistently high passing rates in licensure examinations across all programs.</p>
+          <div class="col-lg-6 mb-4">
+            <div class="mandate-card p-4 h-100">
+              <h4><i class="bi bi-file-text me-2"></i>Institutional Mandates</h4>
+              <ul class="list-unstyled">
+                <li><i class="bi bi-check-circle me-2"></i>Provide accessible quality education</li>
+                <li><i class="bi bi-check-circle me-2"></i>Conduct research and development</li>
+                <li><i class="bi bi-check-circle me-2"></i>Extend community services</li>
+                <li><i class="bi bi-check-circle me-2"></i>Preserve and promote Filipino culture</li>
+              </ul>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6 mb-4">
-            <div class="achievement-card text-center p-4 h-100">
-              <div class="achievement-icon mb-3">
-                <i class="bi bi-trophy display-4 text-warning"></i>
-              </div>
-              <h4>Research Recognition</h4>
-              <p>Faculty and students recognized for innovative research contributions in various fields.</p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mb-4">
-            <div class="achievement-card text-center p-4 h-100">
-              <div class="achievement-icon mb-3">
-                <i class="bi bi-handshake display-4 text-success"></i>
-              </div>
-              <h4>Industry Partnerships</h4>
-              <p>Strong collaborations with leading companies and organizations for internships and employment.</p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mb-4">
-            <div class="achievement-card text-center p-4 h-100">
-              <div class="achievement-icon mb-3">
-                <i class="bi bi-people-fill display-4 text-info"></i>
-              </div>
-              <h4>Community Service</h4>
-              <p>Active engagement in community development programs and social responsibility initiatives.</p>
+          <div class="col-lg-6 mb-4">
+            <div class="characteristic-card p-4 h-100">
+              <h4><i class="bi bi-star me-2"></i>Distinctive Characteristics</h4>
+              <ul class="list-unstyled">
+                <li><i class="bi bi-check-circle me-2"></i>Student-centered learning approach</li>
+                <li><i class="bi bi-check-circle me-2"></i>Industry-relevant curriculum</li>
+                <li><i class="bi bi-check-circle me-2"></i>Research-driven education</li>
+                <li><i class="bi bi-check-circle me-2"></i>Community engagement focus</li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- University Councils Section -->
+    <section id="councils" class="py-5">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">University Councils</h2>
+          <p class="section-subtitle">Governing bodies that ensure institutional excellence</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="council-card text-center p-4 h-100">
+              <div class="council-icon mb-3">
+                <i class="bi bi-people display-4"></i>
+              </div>
+              <h4>Board of Trustees</h4>
+              <p>Oversees institutional policies and strategic direction for long-term development.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="council-card text-center p-4 h-100">
+              <div class="council-icon mb-3">
+                <i class="bi bi-mortarboard display-4"></i>
+              </div>
+              <h4>Academic Council</h4>
+              <p>Manages academic policies, curriculum development, and educational standards.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="council-card text-center p-4 h-100">
+              <div class="council-icon mb-3">
+                <i class="bi bi-gear display-4"></i>
+              </div>
+              <h4>Administrative Council</h4>
+              <p>Handles administrative operations and institutional management.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <section class="contact-section py-5">
+    <!-- Milestones Section -->
+    <section id="milestones" class="py-5 bg-light">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">Milestones</h2>
+          <p class="section-subtitle">Key achievements in our journey of excellence</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="milestone-card text-center p-4 h-100">
+              <div class="milestone-icon mb-3">
+                <i class="bi bi-trophy display-4"></i>
+              </div>
+              <h4>2022</h4>
+              <p>Institution established with initial academic programs</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="milestone-card text-center p-4 h-100">
+              <div class="milestone-icon mb-3">
+                <i class="bi bi-award display-4"></i>
+              </div>
+              <h4>2023</h4>
+              <p>Accreditation of core programs and facilities expansion</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="milestone-card text-center p-4 h-100">
+              <div class="milestone-icon mb-3">
+                <i class="bi bi-star display-4"></i>
+              </div>
+              <h4>2024</h4>
+              <p>Research recognition and community service awards</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="milestone-card text-center p-4 h-100">
+              <div class="milestone-icon mb-3">
+                <i class="bi bi-flag display-4"></i>
+              </div>
+              <h4>2025</h4>
+              <p>Strategic partnerships and international collaborations</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="py-5">
       <div class="container">
         <div class="text-center mb-5">
           <h2 class="section-title">Contact Us</h2>
@@ -291,28 +489,28 @@
             <div class="contact-info">
               <h4>Get in Touch</h4>
               <div class="contact-item d-flex align-items-start mb-3">
-                <i class="bi bi-geo-alt-fill text-primary me-3 mt-1"></i>
+                <i class="bi bi-geo-alt-fill me-3 mt-1"></i>
                 <div>
                   <strong>Address:</strong><br>
                   123 Education Street, Manila, Philippines 1000
                 </div>
               </div>
               <div class="contact-item d-flex align-items-start mb-3">
-                <i class="bi bi-telephone-fill text-primary me-3 mt-1"></i>
+                <i class="bi bi-telephone-fill me-3 mt-1"></i>
                 <div>
                   <strong>Phone:</strong><br>
                   +63 2 8XXX XXXX
                 </div>
               </div>
               <div class="contact-item d-flex align-items-start mb-3">
-                <i class="bi bi-envelope-fill text-primary me-3 mt-1"></i>
+                <i class="bi bi-envelope-fill me-3 mt-1"></i>
                 <div>
                   <strong>Email:</strong><br>
                   info@iscp.edu.ph
                 </div>
               </div>
               <div class="contact-item d-flex align-items-start mb-3">
-                <i class="bi bi-clock-fill text-primary me-3 mt-1"></i>
+                <i class="bi bi-clock-fill me-3 mt-1"></i>
                 <div>
                   <strong>Office Hours:</strong><br>
                   Monday - Friday: 8:00 AM - 5:00 PM<br>
@@ -344,40 +542,6 @@
         </div>
       </div>
     </section>
-
-
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="loginModalLabel">Student Login</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="mb-3">
-                <label for="studentId" class="form-label">Student ID</label>
-                <input type="text" class="form-control" id="studentId" required>
-              </div>
-              <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" required>
-              </div>
-              <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="rememberMe">
-                <label class="form-check-label" for="rememberMe">
-                  Remember me
-                </label>
-              </div>
-              <button type="submit" class="btn btn-primary w-100">Login</button>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <a href="#" class="text-decoration-none">Forgot Password?</a>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <script src="/js/bootstrap.bundle.js"></script>
     <script src="/js/custom.js"></script>
