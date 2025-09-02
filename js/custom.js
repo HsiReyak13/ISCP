@@ -482,22 +482,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-  // Scroll-triggered Navigation Background (Only for main page)
-  const mainNavbar = document.querySelector('.bg-main .navbar');
+  // Scroll-triggered Navigation Background (for pages with .bg-main hero section)
+  const mainNavbar = document.querySelector('.navbar');
   const heroSection = document.querySelector('.bg-main');
   
-  // Only apply scroll effect if we're on the main page (index.html)
-  if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
+  // Apply scroll effect if we have a .bg-main hero section
+  if (heroSection && mainNavbar) {
     function updateNavbarBackground() {
-      if (heroSection && mainNavbar) {
-        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
-        const scrollPosition = window.pageYOffset + 100; // Add offset for smooth transition
-        
-        if (scrollPosition > heroBottom) {
-          mainNavbar.classList.add('scrolled');
-        } else {
-          mainNavbar.classList.remove('scrolled');
-        }
+      const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+      const scrollPosition = window.pageYOffset + 100; // Add offset for smooth transition
+      
+      if (scrollPosition > heroBottom) {
+        mainNavbar.classList.add('scrolled');
+      } else {
+        mainNavbar.classList.remove('scrolled');
       }
     }
     
