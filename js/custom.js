@@ -252,41 +252,20 @@ function animateCounter(element, target) {
 
 function initializePreloader() {
   const preloader = document.getElementById("preloader");
-  const progressFill = document.getElementById("progressFill");
-  const progressText = document.getElementById("progressText");
 
   if (!preloader) return;
 
   document.body.classList.add("preloading");
 
-  let progress = 0;
-  const targetProgress = 100;
-  const increment = 0.8;
-  const progressInterval = setInterval(() => {
-    progress += increment;
+  setTimeout(() => {
+    preloader.classList.add("fade-out");
 
-    if (progressFill) {
-      progressFill.style.width = `${Math.min(progress, 100)}%`;
-    }
-
-    if (progressText) {
-      progressText.textContent = `${Math.min(Math.round(progress), 100)}%`;
-    }
-
-    if (progress >= targetProgress) {
-      clearInterval(progressInterval);
-
-      setTimeout(() => {
-        preloader.classList.add("fade-out");
-
-        setTimeout(() => {
-          preloader.remove();
-          document.body.classList.remove("preloading");
-          triggerContentAnimations();
-        }, 800);
-      }, 600);
-    }
-  }, 60);
+    setTimeout(() => {
+      preloader.remove();
+      document.body.classList.remove("preloading");
+      triggerContentAnimations();
+    }, 800);
+  }, 3000);
 }
 
 function triggerContentAnimations() {
@@ -308,73 +287,6 @@ function triggerContentAnimations() {
       element.style.transform = "translateY(0)";
     }, 200);
   });
-}
-
-function initializeEnhancedSearch() {
-  const searchInput = document.getElementById("searchInput");
-  const searchResults = document.createElement("div");
-  searchResults.className = "search-results";
-  searchResults.style.cssText = `
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    max-height: 300px;
-    overflow-y: auto;
-    display: none;
-  `;
-
-  if (searchInput) {
-    searchInput.parentElement.style.position = "relative";
-    searchInput.parentElement.appendChild(searchResults);
-
-    searchInput.addEventListener("input", function () {
-      const query = this.value.toLowerCase();
-      if (query.length > 2) {
-        const results = [
-          "Computer Science Program",
-          "Engineering Department",
-          "Business Administration",
-          "Student Portal",
-          "Academic Calendar",
-        ].filter((item) => item.toLowerCase().includes(query));
-
-        displaySearchResults(results);
-      } else {
-        searchResults.style.display = "none";
-      }
-    });
-
-    searchInput.addEventListener("blur", function () {
-      setTimeout(() => {
-        searchResults.style.display = "none";
-      }, 200);
-    });
-  }
-}
-
-function displaySearchResults(results) {
-  const searchResults = document.querySelector(".search-results");
-  if (results.length > 0) {
-    searchResults.innerHTML = results
-      .map(
-        (result) => `
-      <div class="search-result-item" style="padding: 12px 16px; border-bottom: 1px solid #eee; cursor: pointer; transition: background 0.3s ease;">
-        <i class="bi bi-search me-2"></i>${result}
-      </div>
-    `
-      )
-      .join("");
-    searchResults.style.display = "block";
-  } else {
-    searchResults.innerHTML =
-      '<div style="padding: 16px; text-align: center; color: #666;">No results found</div>';
-    searchResults.style.display = "block";
-  }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
